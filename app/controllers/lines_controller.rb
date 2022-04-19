@@ -2,12 +2,12 @@ class LinesController < ApplicationController
 
     def index
         lines = Line.all
-        render json: lines, include: :stops    
+        render json: lines, each_serializer: LineSerializer
     end
 
     def show
         line = Line.find(params[:id])
-        render json: line, include: :stops
+        render json: line 
     end
 
 

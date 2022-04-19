@@ -7,7 +7,7 @@ function Schedule({showLineDetail}){
         fetch(`/lines/${line.id}`)
         .then((r)=> {
             if(r.ok){
-            r.json().then((data) => showLineDetail([data]))  
+            r.json().then((data) => showLineDetail(data))  
             } else {
              r.json().then((error)=> console.log(error))   
             }
