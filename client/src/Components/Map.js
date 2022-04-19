@@ -3,7 +3,7 @@ import ChangeView from './ChangeView'
 
 function Map(){
 
-    const location = [51.505, -0.09]
+    const location = [41.862, -87.628]
 
     return(
         <MapContainer center={location} zoom={12}>

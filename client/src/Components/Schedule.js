@@ -1,18 +1,18 @@
 import {Box, Grid, TextField, Button, ButtonGroup} from "@mui/material"
-import {useState} from 'react'
 
-function Schedule(){
+function Schedule({showLineDetail}){
 
-    const[lineDetail, setLineDetail] = useState([])
- 
     function showLineDetails(event){
         const line = event.target
         fetch(`/lines/${line.id}`)
-        .then(r=>r.json())
-        .then(data => setLineDetail(data))   
+        .then((r)=> {
+            if(r.ok){
+            r.json().then((data) => showLineDetail([data]))  
+            } else {
+             r.json().then((error)=> console.log(error))   
+            }
+        })
     }
-
-    console.log(lineDetail)
 
     const buttons1 = [
         <Button id="1" value="Red" onClick={(showLineDetails)}>Red</Button>,
