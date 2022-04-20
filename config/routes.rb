@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :directions, only: [:index]
 
+  resources :routes, only: [:index]
   
   
   # Routing logic: fallback requests for React Router.

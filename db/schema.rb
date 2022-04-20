@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_13_191047) do
+ActiveRecord::Schema.define(version: 2022_04_20_165332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,29 +21,18 @@ ActiveRecord::Schema.define(version: 2022_04_13_191047) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "line_directions", force: :cascade do |t|
-    t.integer "line_id"
+  create_table "routes", force: :cascade do |t|
+    t.string "route"
+    t.string "name"
+    t.string "rtclr"
+    t.string "rtdd"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "routes_directions", force: :cascade do |t|
+    t.integer "route_id"
     t.integer "direction_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "line_stops", force: :cascade do |t|
-    t.integer "stop_id"
-    t.integer "line_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "lines", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "stops", force: :cascade do |t|
-    t.string "name"
-    t.integer "mapid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
