@@ -1,39 +1,35 @@
 import {Box, Grid, TextField, Button, ButtonGroup} from "@mui/material"
+import {useState, useEffect} from "react"
 
-function Schedule({showLineDetail}){
+function Schedule(){
 
-    function showLineDetails(event){
-        const line = event.target
-        fetch(`/lines/${line.id}`)
-        .then((r)=> {
-            if(r.ok){
-            r.json().then((data) => showLineDetail(data))  
-            } else {
-             r.json().then((error)=> console.log(error))   
-            }
-        })
-    }
+const [routes, setRoutes] = useState([])
 
-    const buttons1 = [
-        <Button id="1" value="Red" onClick={(showLineDetails)}>Red</Button>,
-        <Button id="2" value="Blue"onClick={(showLineDetails)}>Blue</Button>,
-        <Button id="3" value="Brown"onClick={(showLineDetails)}>Brown</Button>,
-        <Button id="4"  value="Green"onClick={(showLineDetails)}>Green</Button>
-    ]
-
-    const buttons2 = [
-        <Button id="5" value="Orange" onClick={(showLineDetails)}>Orange</Button>,
-        <Button id="6" value="Purple"onClick={(showLineDetails)}>Purple</Button>,
-        <Button id="7" value="Pink"onClick={(showLineDetails)}>Pink</Button>,
-        <Button id="8" value="Yellow" onClick={(showLineDetails)}>Yellow</Button>
-    ]
+   useEffect(()=>{
+   fetch("/routes")
+   .then((r)=>{
+       if(r.ok){
+           r.json().then((data) => setRoutes(data))
+       }
+       else {
+           r.json().then((error)=>console.log(error))
+       }
+   })
+   }, [])
 
 
+  function showBusDetail(event){
+  console.log(event.target)
+  }
+
+   const routes_array = routes.map((route)=>{
+    return(<Button sx={{width:50}} key={route.id} id ={route.id} onClick={showBusDetail}>{route.route}</Button>)
+   })
 
 
     return(
         <>
-        <Box sx={{ width: 600, backgroundColor: 'primary.light'}}>
+        <Box sx={{ width: 600,}}>
         <form>  
         <h1>Schedule</h1>
 
@@ -52,13 +48,12 @@ function Schedule({showLineDetail}){
                  alignItems: 'left',
                  '& > *': {
                  m: 1,
+                 flexWrap: 'wrap',
+                 justifyContent: 'flex-start',
                  },
                 }}>
                      <ButtonGroup color="secondary" aria-label="medium secondary button group">
-                     {buttons1}
-                     </ButtonGroup>  
-                     <ButtonGroup color="secondary" aria-label="medium secondary button group">
-                     {buttons2}
+                     {routes_array}
                      </ButtonGroup>     
           </Box>
           </Grid>
