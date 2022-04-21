@@ -1,21 +1,17 @@
 import {Box, Grid, TextField, Button, ButtonGroup} from "@mui/material"
-import {useState, useEffect} from "react"
+import {useEffect} from "react"
+import { useSelector, useDispatch } from "react-redux";
+import {fetchBuses} from "../redux/busesSlice"
 
 function Schedule(){
 
-const [routes, setRoutes] = useState([])
+const routes = useSelector((state)=> state.buses.entities)
+
+const dispatch = useDispatch();
 
    useEffect(()=>{
-   fetch("/routes")
-   .then((r)=>{
-       if(r.ok){
-           r.json().then((data) => setRoutes(data))
-       }
-       else {
-           r.json().then((error)=>console.log(error))
-       }
-   })
-   }, [])
+   dispatch(fetchBuses())
+   }, [dispatch])
 
 
   function showBusDetail(event){

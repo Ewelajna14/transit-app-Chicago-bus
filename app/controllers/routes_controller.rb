@@ -5,5 +5,10 @@ def index
     render json: routes
 end
 
+def show
+    route = Route.find(params[:id])
+    render json: route
+end
+
 
 end
