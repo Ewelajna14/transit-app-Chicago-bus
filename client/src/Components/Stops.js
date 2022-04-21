@@ -1,10 +1,10 @@
 
-function Stops({stop}){
+function Stops({direction}){
 
-    console.log(stop)
+    console.log(direction)
     return(
         <>
-             <li>{stop.name}</li>
+             <li>{direction.direction}</li>
         </>
     )
 }

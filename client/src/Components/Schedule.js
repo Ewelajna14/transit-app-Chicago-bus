@@ -1,9 +1,13 @@
 import {Box, Grid, TextField, Button, ButtonGroup} from "@mui/material"
 import {useEffect} from "react"
+import {useNavigate} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {fetchBuses} from "../redux/busesSlice"
+import {fetchLine} from "../redux/lineSlice"
 
 function Schedule(){
+
+const navigate = useNavigate();    
 
 const routes = useSelector((state)=> state.buses.entities)
 
@@ -13,13 +17,14 @@ const dispatch = useDispatch();
    dispatch(fetchBuses())
    }, [dispatch])
 
-
-  function showBusDetail(event){
-  console.log(event.target)
-  }
+   function showLine(event){
+   const line = event.target
+   dispatch(fetchLine(line.id))
+   navigate("/details")
+   }
 
    const routes_array = routes.map((route)=>{
-    return(<Button sx={{width:50}} key={route.id} id ={route.id} onClick={showBusDetail}>{route.route}</Button>)
+    return(<Button sx={{width:50}} key={route.id} id ={route.id} onClick={showLine}>{route.route}</Button>)
    })
 
 
@@ -59,5 +64,6 @@ const dispatch = useDispatch();
         </>
     )
 }
+
 
 export default Schedule
