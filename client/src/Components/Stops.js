@@ -1,11 +1,13 @@
 
-function Stops({direction}){
+function Stops({line, direction}){
 
+    console.log(line)
     console.log(direction)
+    
     return(
-        <>
-             <li>{direction.direction}</li>
-        </>
+        <div>
+
+        </div>
     )
 }
 
