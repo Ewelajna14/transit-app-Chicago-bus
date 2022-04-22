@@ -21,6 +21,8 @@ Bundler.require(*Rails.groups)
 
 module ReactRailsApiProjectTemplate
   class Application < Rails::Application
+  
+    
     # Adding cookies and session middleware
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore

@@ -1,9 +1,16 @@
 
-function Stops({line, direction}){
+import { useSelector} from "react-redux";
 
-    console.log(line)
-    console.log(direction)
+function Stops(){
+
     
+    
+
+    const stops = useSelector((state)=>state.stops.entities)
+
+    console.log(stops)
+
+
     return(
         <div>
 

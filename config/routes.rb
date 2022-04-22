@@ -2,9 +2,13 @@ Rails.application.routes.draw do
 
   resources :directions, only: [:index]
 
-  resources :routes, only: [:index, :show]
+  resources :routes, only: [:index, :show] do 
+    resources :directions, only: [:index] do
+      resources :stops, only: [:index]
+    end
+  end 
 
-  resources :stops, only: [:index, :show]
+  
   
   
   # Routing logic: fallback requests for React Router.
