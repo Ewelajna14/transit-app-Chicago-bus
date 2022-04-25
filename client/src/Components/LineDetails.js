@@ -47,9 +47,10 @@ function LineDetails(){
             </ButtonGroup>
             </Grid>
         </Grid>
+        
         </form>
         </Box> 
-
+       
     </div>)
 }
 

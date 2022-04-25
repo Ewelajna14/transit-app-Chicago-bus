@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     end
   end 
 
+  resources :routes, only: [:index, :show] do
+    resources :stops, only: [:index, :show] do
+      resources :predictions, only: [:index]
+    end
+  end
+
   
   
   

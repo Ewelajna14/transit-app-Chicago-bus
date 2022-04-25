@@ -29,7 +29,7 @@ function Stops(){
         <ul>
          {
            stops && stops.stops?.map((stop)=>{
-            return <Stop key={stop.stpid} stop={stop}/>
+            return <Stop key={stop.stpid} stop={stop} lineDetail={lineDetail}/>
         })
         }
         </ul>
