@@ -1,10 +1,10 @@
 
-import '../App.css';
 import { Route, Routes} from "react-router-dom";
-import Map from './Map'
+
 import NavBar from './NavBar';
 import Schedule from './Schedule';
 import LineDetails from './LineDetails';
+import Stops from "./Stops";
 
 
 function App() {
@@ -12,10 +12,11 @@ function App() {
   return (
     <div>
     <NavBar/>
-    <Map class="leaflet-container"/>
+    
     <Routes>
       <Route exact path ="/schedule" element={<Schedule/>}/>
       <Route exact path ="/details" element={<LineDetails/>}/>
+      <Route exact path ="/stops" element={<Stops/>}/>
     </Routes>
     </div>
   );

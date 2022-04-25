@@ -1,20 +1,39 @@
 
 import { useSelector} from "react-redux";
-import Stop from "./Stop"
+import Stop from "./Stop";
+import {useNavigate} from 'react-router-dom';
+import {Button} from "@mui/material"
+import Map from './Map'
+import '../App.css';
 
 function Stops(){
 
-    const stops = useSelector((state)=>state.stops.entities["bustime-response"].stops)
+    const navigate = useNavigate()
 
-    const stopArray = stops.map((stop)=>{
-    return(<Stop key={stop.stpid} stop={stop}/>)
-    })
+    const stops = useSelector((state)=>state.stops.entities["bustime-response"])
+
+    const lineDetail = useSelector((state)=>state.line.entities)
+
+  
+
+    function backToDetails(){
+        navigate("/details")
+        }
 
 
     return(
+        <>
+        <Map class="leaflet-container" stops={stops}/>
+        <h1>Schedule for bus {lineDetail.route}: {lineDetail.name}</h1>
+        <Button onClick={backToDetails}>Choose different direction</Button> 
         <ul>
-         {stopArray}
+         {
+           stops && stops.stops?.map((stop)=>{
+            return <Stop key={stop.stpid} stop={stop}/>
+        })
+        }
         </ul>
+        </>
     )
 }
 
