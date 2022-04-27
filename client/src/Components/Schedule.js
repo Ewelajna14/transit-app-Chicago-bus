@@ -9,7 +9,7 @@ function Schedule(){
 
 const navigate = useNavigate();    
 
-const routes = useSelector((state)=> state.buses.entities)
+const routes = useSelector((state)=> state.persisted.buses.entities)
 
 const dispatch = useDispatch();
 

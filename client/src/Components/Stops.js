@@ -6,13 +6,13 @@ import {Button} from "@mui/material"
 import Map from './Map'
 import '../App.css';
 
-function Stops(){
+function Stops({changeMapCenter, location, zoomIn}){
 
     const navigate = useNavigate()
 
-    const stops = useSelector((state)=>state.stops.entities["bustime-response"])
+    const stops = useSelector((state)=>state.persisted.stops.entities["bustime-response"])
 
-    const lineDetail = useSelector((state)=>state.line.entities)
+    const lineDetail = useSelector((state)=>state.persisted.line.entities)
 
   
 
@@ -23,13 +23,13 @@ function Stops(){
 
     return(
         <>
-        <Map class="leaflet-container" stops={stops}/>
+        <Map class="leaflet-container" stops={stops} location={location} zoomIn={zoomIn}/>
         <h1>Schedule for bus {lineDetail.route}: {lineDetail.name}</h1>
         <Button onClick={backToDetails}>Choose different direction</Button> 
         <ul>
          {
            stops && stops.stops?.map((stop)=>{
-            return <Stop key={stop.stpid} stop={stop} lineDetail={lineDetail}/>
+            return <Stop key={stop.stpid} stop={stop} lineDetail={lineDetail} changeMapCenter={changeMapCenter}/>
         })
         }
         </ul>

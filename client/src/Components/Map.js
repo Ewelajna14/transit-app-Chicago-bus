@@ -3,18 +3,15 @@ import {Icon} from "leaflet"
 import ChangeView from './ChangeView'
 
 
-function Map({stops}){
+function Map({stops, location, zoomIn}){
 
       const busIcon =new Icon({
         iconUrl: "/bus-pin.svg",
         iconSize: [35,35]})
-
-    const location = [41.862, -87.628]
-
    
     return(
-        <MapContainer center={location} zoom={12}>
-        <ChangeView center={location} zoom={12} />     
+        <MapContainer center={location} zoom={zoomIn}>
+        <ChangeView center={location} zoom={zoomIn} />     
          <TileLayer
          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

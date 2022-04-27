@@ -7,7 +7,7 @@ import {fetchStops} from "../redux/stopsSlice";
 
 function LineDetails(){
 
-    const lineDetail = useSelector((state)=>state.line.entities)
+    const lineDetail = useSelector((state)=>state.persisted.line.entities)
     
     console.log(lineDetail.directions)
   
