@@ -1,5 +1,5 @@
 import {Box, Grid, TextField, Button, ButtonGroup} from "@mui/material"
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {fetchBuses} from "../redux/busesSlice"
@@ -7,15 +7,24 @@ import {fetchLine} from "../redux/lineSlice"
 
 function Schedule(){
 
+    const[routes, setRoutes] = useState([])
+    const [search, setSearch] = useState("")
+
 const navigate = useNavigate();    
 
-const routes = useSelector((state)=> state.persisted.buses.entities)
+//const routes = useSelector((state)=> state.persisted.buses.entities)
 
 const dispatch = useDispatch();
 
+   //useEffect(()=>{
+   //dispatch(fetchBuses())
+   //}, [dispatch])
+
    useEffect(()=>{
-   dispatch(fetchBuses())
-   }, [dispatch])
+    fetch("/routes")
+    .then((response) => response.json())
+    .then((data) =>setRoutes(data))
+   }, [])
 
    function showLine(event){
    const line = event.target
@@ -23,10 +32,18 @@ const dispatch = useDispatch();
    navigate("/details")
    }
 
-   const routes_array = routes.map((route)=>{
-    return(<Button sx={{width:50}} key={route.id} id ={route.id} onClick={showLine}>{route.route}</Button>)
-   })
+   function searchRoute(event){
+       setSearch(event.target.value)
+   }
 
+
+   const searchRoutes = routes.filter((route) => route.name.toLowerCase().includes(search.toLowerCase()))
+   
+
+   const routes_array = searchRoutes.map((route)=>{
+    return(<Button sx={{width:50}} title = {route.name} key={route.id} id ={route.id} onClick={showLine}>{route.route}</Button>)
+   })
+   
 
     return(
         <>
@@ -38,9 +55,10 @@ const dispatch = useDispatch();
             <Grid item xs={12}>
                  <TextField 
                     id="outlined-basic" 
-                    label="Outlined" 
                     variant="outlined"
-                    value="Look for the stop"/>  
+                    placeholder="Look for the route"
+                    value={search}
+                    onChange={searchRoute}/>  
             </Grid>
             <Grid item xs={12}>
             <Box sx={{

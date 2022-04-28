@@ -4,7 +4,7 @@ export const fetchBuses = createAsyncThunk("buses/fetchBuses", () => {
   // return a Promise containing the data we want
   return fetch("/routes")
     .then((response) => response.json())
-    .then((data) => data);
+    .then((data) =>data)
 });
 
 
