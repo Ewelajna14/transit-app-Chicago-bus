@@ -1,12 +1,14 @@
 import {useDispatch} from "react-redux";
 import {fetchPredictions} from "../redux/predictionsSlice";
 import {useEffect} from "react"
+import {Grid, Card, CardContent, Typography} from '@mui/material'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 function StopDetailCard({prediction}){
 
 
-    console.log(prediction)
+    
     //const dispatch = useDispatch()
 
     //useEffect(()=>{
@@ -14,13 +16,34 @@ function StopDetailCard({prediction}){
    // }, [dispatch])
     
 return(
-    <div>
-        <h3>time: {prediction.tmstmp}</h3>
-        <h3>stop name: {prediction.stpnm} </h3>
-        <h3>destionation: {prediction.des}</h3>
-        <h3>time of arrival: {prediction.prdtm}</h3>
-        <h3>time to arrive : {prediction.prdctdn}</h3>
-    </div>
+    <Card  sx={{ width: 600, marginBottom: 5, marginLeft: 5}}>
+        <CardContent>
+        <Grid container spacing={2}>
+        <Grid item xs={8}>   
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        time: {prediction.tmstmp}
+        </Typography>
+        <Typography variant="h5" component="div">
+         {prediction.stpnm} 
+        </Typography>
+        <Typography variant="h5" component="div">
+        destionation <ArrowForwardIcon fontSize="medium"/> {prediction.des}
+        </Typography>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+         time of arrival: {prediction.prdtm}
+        </Typography>
+        </Grid>
+        <Grid item xs={4}>
+        <Typography variant="h5" component="div">
+         time left  
+        </Typography>
+        <Typography variant="h4" component="div">
+        {prediction.prdctdn} min
+        </Typography>
+        </Grid>
+        </Grid>
+        </CardContent>
+    </Card>
     
 )
 }
