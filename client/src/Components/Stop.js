@@ -22,8 +22,7 @@ function Stop({stop, lineDetail, changeMapCenter}){
 
     return (
     <li>
-      <h3>{stop.stpnm}</h3>
-      <Button id ={stop.stpid} value={[stop.lat, stop.lon]} onClick={showStop}>Show Stop</Button>
+      <Button id ={stop.stpid} value={[stop.lat, stop.lon]} onClick={showStop}>{stop.stpnm}</Button>
     </li>)
 
 }

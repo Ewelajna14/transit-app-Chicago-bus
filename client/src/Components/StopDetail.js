@@ -1,5 +1,6 @@
 import { useSelector, useDispatch} from "react-redux";
 import {Button} from "@mui/material"
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import {useNavigate} from 'react-router-dom';
 import Map from './Map'
 import StopDetailCard from "./StopDetailCard";
@@ -31,8 +32,9 @@ function StopDetail({location, zoomIn}){
         <div>
             <Map class="leaflet-container" stops={stops} location={location} zoomIn={zoomIn}/>
             <h1>Schedule for bus {lineDetail.route}: {lineDetail.name}</h1>
-            <Button onClick={backToStops}>Choose different stop</Button> 
-            <Button onClick ={fetchData}>Refresh</Button>
+            <h2></h2>
+            <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick={backToStops}><KeyboardReturnIcon/> Back </Button> 
+            <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick ={fetchData}>Refresh</Button>
             {
                 predictions && predictions.prd?.map((prediction)=>{
                     return(
