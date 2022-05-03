@@ -28,7 +28,7 @@ function Stops({changeMapCenter, location, zoomIn}){
         <h1>Schedule for bus {lineDetail.route}: {lineDetail.name}</h1>
         <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick={backToDetails}><KeyboardReturnIcon/> Back </Button> 
         <TableContainer sx={{ maxHeight: 400, width: 350 }}>
-        <Table sx={{ width: 300 }} aria-label="simple table">
+        <Table sx={{ width: 300}} aria-label="simple table">
         <TableBody>
         <TableRow>
         <ul>

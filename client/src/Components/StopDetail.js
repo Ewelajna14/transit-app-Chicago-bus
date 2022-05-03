@@ -6,7 +6,7 @@ import Map from './Map'
 import StopDetailCard from "./StopDetailCard";
 import {fetchPredictions} from "../redux/predictionsSlice";
 
-function StopDetail({location, zoomIn}){
+function StopDetail({location, zoomIn, setZoomIn}){
 
     const lineDetail = useSelector((state)=>state.persisted.line.entities)
 
@@ -20,6 +20,7 @@ function StopDetail({location, zoomIn}){
 
     function backToStops(){
         navigate("/stops")
+        setZoomIn(12)
     }
 
     function fetchData(){
