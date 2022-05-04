@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {fetchBuses} from "../redux/busesSlice"
 import {fetchLine} from "../redux/lineSlice"
+import { fetchVehicles } from "../redux/vehiclesSlice";
 
 function Schedule(){
 
@@ -29,6 +30,7 @@ const dispatch = useDispatch();
    function showLine(event){
    const line = event.target
    dispatch(fetchLine(line.id))
+   dispatch(fetchVehicles(line.value))
    navigate("/details")
    }
 
@@ -41,7 +43,7 @@ const dispatch = useDispatch();
    
 
    const routes_array = searchRoutes.map((route)=>{
-    return(<Button sx={{width:50}} title = {route.name} key={route.id} id ={route.id} onClick={showLine}>{route.route}</Button>)
+    return(<Button sx={{width:50}} title = {route.name} key={route.id} id ={route.id} onClick={showLine} value={route.route}>{route.route}</Button>)
    })
    
 

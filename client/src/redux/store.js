@@ -7,12 +7,14 @@ import busesReducer from "./busesSlice"
 import lineReducer from "./lineSlice"
 import predictionsReducer from "./predictionsSlice";
 import stopsReducer from "./stopsSlice"
+import vehiclesReducer from "./vehiclesSlice"
 
 
 const reducers = combineReducers({
         buses: busesReducer,
         line: lineReducer,
         stops: stopsReducer,
+        vehicles: vehiclesReducer
         
   });
 

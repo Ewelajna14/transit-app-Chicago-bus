@@ -11,7 +11,7 @@ function Stops({changeMapCenter, location, zoomIn}){
 
     const navigate = useNavigate()
 
-    const stops = useSelector((state)=>state.persisted.stops.entities["bustime-response"])
+    const stops = useSelector((state)=>state.persisted.stops.entities["bustime-response"].stops)
 
     const lineDetail = useSelector((state)=>state.persisted.line.entities)
 
@@ -33,7 +33,7 @@ function Stops({changeMapCenter, location, zoomIn}){
         <TableRow>
         <ul>
          {
-           stops && stops.stops?.map((stop)=>{
+           stops && stops?.map((stop)=>{
             return <Stop key={stop.stpid} stop={stop} lineDetail={lineDetail} changeMapCenter={changeMapCenter}/>
         })
         }

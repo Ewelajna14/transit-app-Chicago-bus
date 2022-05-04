@@ -17,11 +17,11 @@ function Map({stops, location, zoomIn}){
          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         { stops &&
-         stops.stops?.map((stop)=>{
+         stops?.map((stop)=>{
          return(
          <Marker position={[stop.lat, stop.lon]} icon={busIcon}>
          <Popup>
-          <h4>{stop.stpnm}</h4>
+          <h4>{stop.stpnm? stop.stpnm : stop.des}</h4>
         </Popup>
         </Marker>
          )

@@ -5,6 +5,7 @@ import Schedule from './Schedule';
 import LineDetails from './LineDetails';
 import Stops from "./Stops";
 import StopDetail from "./StopDetail";
+import Map from './Map'
 
 
 function App() {
@@ -22,13 +23,13 @@ function App() {
   return (
     <div>
     <NavBar/>
-    
     <Routes>
       <Route exact path ="/schedule" element={<Schedule/>}/>
-      <Route exact path ="/details" element={<LineDetails/>}/>
+      <Route exact path ="/details" element={<LineDetails location={location} zoomIn={zoomIn} />}/>
       <Route exact path ="/stops" element={<Stops changeMapCenter={changeMapCenter} location={location} zoomIn={zoomIn}/>}/>
       <Route exact path ="/stopDetail" element={<StopDetail location={location} zoomIn={zoomIn} setZoomIn={setZoomIn}/>}/>
     </Routes>
+   
     </div>
   );
 }

@@ -10,7 +10,7 @@ function StopDetail({location, zoomIn, setZoomIn}){
 
     const lineDetail = useSelector((state)=>state.persisted.line.entities)
 
-    const stops = useSelector((state)=>state.persisted.stops.entities["bustime-response"])
+    const stops = useSelector((state)=>state.persisted.stops.entities["bustime-response"].stops)
 
     const predictions = useSelector((state)=>state.predictions.entities["bustime-response"])
 

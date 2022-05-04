@@ -3,13 +3,18 @@ import {Box, Grid, Button, ButtonGroup} from "@mui/material"
 import {useNavigate} from 'react-router-dom';
 import { useSelector, useDispatch} from "react-redux";
 import {fetchStops} from "../redux/stopsSlice";
+import Map from './Map'
 
 
-function LineDetails(){
+function LineDetails({location, zoomIn}){
 
     const lineDetail = useSelector((state)=>state.persisted.line.entities)
+
+    const vehicles = useSelector((state)=>state.persisted.vehicles.entities["bustime-response"].vehicle)
+
+    console.log(vehicles)
     
-    console.log(lineDetail.directions)
+   
   
     const navigate = useNavigate()
     const dispatch = useDispatch();
@@ -26,7 +31,7 @@ function LineDetails(){
         return( <Button key={direction.id} value={direction.direction} onClick={(event)=>showStops(event)}>{direction.direction}</Button>)
     })
 
-    console.log(showDirections)
+    
 
     
 
@@ -47,7 +52,7 @@ function LineDetails(){
             </ButtonGroup>
             </Grid>
         </Grid>
-        
+        <Map class="leaflet-container"  location={location} zoomIn={zoomIn} stops={vehicles}/>
         </form>
         </Box> 
        
