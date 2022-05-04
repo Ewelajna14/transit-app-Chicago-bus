@@ -5,7 +5,7 @@ import Schedule from './Schedule';
 import LineDetails from './LineDetails';
 import Stops from "./Stops";
 import StopDetail from "./StopDetail";
-import Map from './Map'
+import Home from "./Home"
 
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
     <div>
     <NavBar/>
     <Routes>
+      <Route exact path="/" element={<Home/>}></Route>
       <Route exact path ="/schedule" element={<Schedule/>}/>
       <Route exact path ="/details" element={<LineDetails location={location} zoomIn={zoomIn} />}/>
       <Route exact path ="/stops" element={<Stops changeMapCenter={changeMapCenter} location={location} zoomIn={zoomIn}/>}/>
