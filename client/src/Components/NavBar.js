@@ -36,7 +36,7 @@ return(
           Schedule
         </NavLink>  
         </Typography>
-       <Typography variant="h6" sx={{ mr: 2 }}>Trip</Typography>
+       <Typography variant="h6" sx={{ mr: 2 }}>Bicycles</Typography>
    </Toolbar>
 </AppBar>
 </ThemeProvider> 
