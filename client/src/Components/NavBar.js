@@ -37,6 +37,7 @@ return(
         </NavLink>  
         </Typography>
        <Typography variant="h6" sx={{ mr: 2 }}>Bicycles</Typography>
+       <Typography variant="h6" sx={{ mr: 2 }}>My Account</Typography>
    </Toolbar>
 </AppBar>
 </ThemeProvider> 
