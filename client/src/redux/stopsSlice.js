@@ -29,7 +29,6 @@ export const stopsSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = stopsSlice.actions
+
 
 export default stopsSlice.reducer

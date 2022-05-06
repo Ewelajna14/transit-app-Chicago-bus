@@ -20,7 +20,7 @@ function StopDetail({location, zoomIn, setZoomIn}){
 
     function backToStops(){
         navigate("/stops")
-        setZoomIn(12)
+        setZoomIn(11)
     }
 
     function fetchData(){

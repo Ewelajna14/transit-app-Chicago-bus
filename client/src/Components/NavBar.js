@@ -4,7 +4,9 @@ import Menu from '@mui/icons-material/MenuOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { NavLink} from "react-router-dom";
 
-function NavBar(){
+function NavBar({user}){
+
+  
 
     const theme = createTheme({
         palette: {
@@ -21,7 +23,7 @@ function NavBar(){
 
 return(
 <ThemeProvider theme={theme}>   
-<AppBar color="neutral">
+<AppBar color="neutral"  position="static">
    <Toolbar>
        <IconButton>
              <Menu sx={{ color: "white"}}/>
@@ -31,13 +33,17 @@ return(
        Home
        </NavLink>  
        </Typography>
-       <Typography variant="h6" sx={{ mr: 2 }}>
+       <Typography variant="h6" sx={{ mr: 2}}>
          <NavLink to="/schedule" style={{"text-decoration": "none", color: "white"}}>
           Schedule
         </NavLink>  
         </Typography>
-       <Typography variant="h6" sx={{ mr: 2 }}>Bicycles</Typography>
-       <Typography variant="h6" sx={{ mr: 2 }}>My Account</Typography>
+       <Typography variant="h6" sx={{ mr: 2}}>Bicycles</Typography>
+       <Typography variant="h6" sx={{ mr: 2, flexGrow: 1 }}>My Account</Typography>
+       {
+         user? <Typography variant="h6" sx={{ mr: 2}}>Hello {user.first_name}</Typography> : null
+       }
+       
    </Toolbar>
 </AppBar>
 </ThemeProvider> 

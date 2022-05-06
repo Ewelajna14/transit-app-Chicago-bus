@@ -16,11 +16,11 @@ Rails.application.routes.draw do
 
   resources :vehicles, only: [:show]
 
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create]
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-
+  get "/me", to: "users#show"
   
   
   # Routing logic: fallback requests for React Router.

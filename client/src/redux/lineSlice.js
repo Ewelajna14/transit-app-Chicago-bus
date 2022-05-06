@@ -26,7 +26,7 @@ export const lineSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = lineSlice.actions
+
+
 
 export default lineSlice.reducer

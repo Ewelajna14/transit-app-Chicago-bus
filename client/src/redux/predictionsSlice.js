@@ -28,7 +28,7 @@ export const predictionsSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
+
 
 
 export default predictionsSlice.reducer
