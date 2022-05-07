@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
+    "react-leaflet-geosearch": "^0.3.4",
     "redux-persist": "^6.0.0"
   }
 }
