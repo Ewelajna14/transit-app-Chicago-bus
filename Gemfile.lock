@@ -74,6 +74,7 @@ GEM
       activesupport
     coderay (1.1.3)
     concurrent-ruby (1.1.10)
+    connection_pool (2.2.5)
     crass (1.0.6)
     diff-lcs (1.5.0)
     domain_name (0.5.20190701)
@@ -83,7 +84,12 @@ GEM
       dotenv (= 2.7.6)
       railties (>= 3.2)
     erubi (1.10.0)
+    et-orbi (1.2.7)
+      tzinfo
     ffi (1.15.5)
+    fugit (1.5.3)
+      et-orbi (~> 1, >= 1.2.7)
+      raabro (~> 1.4)
     globalid (1.0.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -123,6 +129,7 @@ GEM
       method_source (~> 1.0)
     puma (5.6.4)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.6.0)
     rack (2.2.3)
     rack-cors (1.1.1)
@@ -159,6 +166,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.6.0)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -184,6 +192,13 @@ GEM
     rspec-support (3.11.0)
     shoulda-matchers (4.5.1)
       activesupport (>= 4.2.0)
+    sidekiq (6.4.2)
+      connection_pool (>= 2.2.2)
+      rack (~> 2.0)
+      redis (>= 4.2.0)
+    sidekiq-cron (1.4.0)
+      fugit (~> 1)
+      sidekiq (>= 4.2.1)
     spring (4.0.0)
     sprockets (4.0.3)
       concurrent-ruby (~> 1.0)
@@ -224,6 +239,8 @@ DEPENDENCIES
   rspec-json_expectations
   rspec-rails (~> 5.0.0)
   shoulda-matchers (~> 4.0)
+  sidekiq
+  sidekiq-cron
   spring
   tzinfo-data
 

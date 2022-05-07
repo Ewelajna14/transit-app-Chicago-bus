@@ -38,7 +38,11 @@ return(
           Schedule
         </NavLink>  
         </Typography>
-       <Typography variant="h6" sx={{ mr: 2}}>Bicycles</Typography>
+       <Typography variant="h6" sx={{ mr: 2}}>
+       <NavLink to="/bicycles" style={{"text-decoration": "none", color: "white"}}>
+         Bicycles
+         </NavLink>  
+         </Typography>
        <Typography variant="h6" sx={{ mr: 2, flexGrow: 1 }}>My Account</Typography>
        {
          user? <Typography variant="h6" sx={{ mr: 2}}>Hello {user.first_name}</Typography> : null
