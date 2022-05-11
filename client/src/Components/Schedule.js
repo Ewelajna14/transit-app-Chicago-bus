@@ -1,8 +1,7 @@
 import {Box, Grid, TextField, Button, ButtonGroup} from "@mui/material"
 import {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import {fetchBuses} from "../redux/busesSlice"
+import {  useDispatch } from "react-redux";
 import {fetchLine} from "../redux/lineSlice"
 import { fetchVehicles } from "../redux/vehiclesSlice";
 
@@ -13,13 +12,8 @@ function Schedule(){
 
 const navigate = useNavigate();    
 
-//const routes = useSelector((state)=> state.persisted.buses.entities)
 
 const dispatch = useDispatch();
-
-   //useEffect(()=>{
-   //dispatch(fetchBuses())
-   //}, [dispatch])
 
    useEffect(()=>{
     fetch("/routes")

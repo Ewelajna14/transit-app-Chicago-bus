@@ -1,12 +1,22 @@
 
-import {AppBar, Toolbar, IconButton, Typography, Box} from "@mui/material"
+import {AppBar, Toolbar, IconButton, Typography, Button} from "@mui/material"
 import Menu from '@mui/icons-material/MenuOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { NavLink} from "react-router-dom";
 
-function NavBar({user}){
+function NavBar({user, setUser}){
 
-  
+  function handleLogOut(){
+    fetch("/logout", {
+      method: "DELETE"
+    })
+    .then(r=>{
+      if (r.ok){
+       setUser(null)
+      }
+    } 
+    )
+  }
 
     const theme = createTheme({
         palette: {
@@ -43,9 +53,13 @@ return(
          Bicycles
          </NavLink>  
          </Typography>
-       <Typography variant="h6" sx={{ mr: 2, flexGrow: 1 }}>My Account</Typography>
+       <Typography variant="h6" sx={{ mr: 2, flexGrow: 1 }}>
+       <NavLink to="/myAccount" style={{"text-decoration": "none", color: "white"}}>
+         MyAccount
+         </NavLink>  
+       </Typography>
        {
-         user? <Typography variant="h6" sx={{ mr: 2}}>Hello {user.first_name}</Typography> : null
+         user? <Typography variant="h6" sx={{ mr: 2}}>Hello {user.first_name} <Button variant="text" sx={{color:"white"}} onClick={handleLogOut}> Log out</Button></Typography> : null
        }
        
    </Toolbar>

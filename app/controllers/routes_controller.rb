@@ -1,5 +1,7 @@
 class RoutesController < ApplicationController
 
+   
+    
     def index
         routes = Route.all
         render json: routes
@@ -9,6 +11,10 @@ class RoutesController < ApplicationController
         route = Route.find(params[:id])
         render json: route
     end
+
+   
+
+
     
     
     end

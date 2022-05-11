@@ -1,5 +1,7 @@
 class VehiclesController < ApplicationController
 
+ 
+    
     #GET /viehicles/:id
     def show
         url = "http://ctabustracker.com/bustime/api/v2/getvehicles?key=#{ENV["KEY"]}&rt=#{params[:id]}&format=json"

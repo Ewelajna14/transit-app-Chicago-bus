@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_05_185952) do
+ActiveRecord::Schema.define(version: 2022_05_11_174828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 2022_05_05_185952) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "fovourite_lines", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "route"
+    t.string "name"
+    t.boolean "liked"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "busId"
+  end
+
   create_table "routes", force: :cascade do |t|
     t.string "route"
     t.string "name"
@@ -28,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_05_05_185952) do
     t.string "rtdd"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "liked", default: false
   end
 
   create_table "routes_directions", force: :cascade do |t|

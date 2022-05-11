@@ -34,7 +34,7 @@ function Map({bstations}){
         }
 
         function showDetails(e){
-          //const markerId = e.target.id
+          const markerId = e.target.options.data
           console.log(e.target.options.data)
         }
    

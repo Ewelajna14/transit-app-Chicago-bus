@@ -1,5 +1,7 @@
 class PredictionsController < ApplicationController
 
+    
+
     #routes/:route_id/stops/stop_id/predictions
 
     def index

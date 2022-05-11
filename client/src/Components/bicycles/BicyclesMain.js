@@ -1,26 +1,36 @@
  import Map from "./Map"
  import { useSelector, useDispatch} from "react-redux";
  import { fetchBicyclesStations } from "../../redux/bicyclesStationsSlice";
- import {useEffect} from "react"
+ import {useEffect, useState} from "react"
 
  function BicyclesMain(){
 
-    const dispatch=useDispatch()
+    const [bstations, setBstations] = useState([])
 
-    const bstations = useSelector((state)=> state.persisted.bstations.entities.data.stations)
+    //const dispatch=useDispatch()
+
+    //const bstations = useSelector((state)=> state.bstations.entities.data.stations)
 
    
 
+    //useEffect(()=>{
+   // dispatch(fetchBicyclesStations())
+    //}, [dispatch])
+
     useEffect(()=>{
-    dispatch(fetchBicyclesStations())
-    }, [dispatch])
+        fetch("/bicycles_stations")
+        .then((response) => response.json())
+        .then((data) => setBstations(data.data.stations))
+
+    }, [])
+
+    
 
 
 
      return(
          <div>
              <Map bstations={bstations}/>
-
          </div>
      )
 

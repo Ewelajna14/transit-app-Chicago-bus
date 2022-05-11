@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+    has_many :fovourite_lines
+
     has_secure_password
 
     validates :first_name, presence: true

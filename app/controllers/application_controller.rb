@@ -6,8 +6,13 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity
 
 
+  
+   
+  
 
   private
+
+  
 
   def render_not_found_response
     render json: {error: ["Record not found"] }, status: :not_found

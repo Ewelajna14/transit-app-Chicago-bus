@@ -9,15 +9,14 @@ import predictionsReducer from "./predictionsSlice";
 import stopsReducer from "./stopsSlice"
 import vehiclesReducer from "./vehiclesSlice"
 import bicyclesStationsReducer from "./bicyclesStationsSlice";
+import favLineReducer from "./favLineSlice";
 
 
 const reducers = combineReducers({
-        buses: busesReducer,
         line: lineReducer,
         stops: stopsReducer,
         vehicles: vehiclesReducer,
-        bstations: bicyclesStationsReducer
-        
+        buses: busesReducer 
   });
 
   const persistConfig = {
@@ -30,7 +29,9 @@ const reducers = combineReducers({
   const store = configureStore({
     reducer: {
        persisted: persistedReducer,
-       predictions: predictionsReducer
+       predictions: predictionsReducer,
+       favLine: favLineReducer,
+       bstations: bicyclesStationsReducer
       },
     devTools: process.env.NODE_ENV !== 'production',
     middleware: [thunk],

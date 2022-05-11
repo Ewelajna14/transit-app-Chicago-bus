@@ -1,4 +1,4 @@
-
+import {useState} from "react"
 import {Box, Grid, Button, ButtonGroup} from "@mui/material"
 import {useNavigate} from 'react-router-dom';
 import { useSelector, useDispatch} from "react-redux";
@@ -12,10 +12,6 @@ function LineDetails({location, zoomIn}){
 
     const vehicles = useSelector((state)=>state.persisted.vehicles.entities["bustime-response"].vehicle)
 
-    console.log(vehicles)
-    
-   
-  
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
@@ -31,9 +27,6 @@ function LineDetails({location, zoomIn}){
         return( <Button key={direction.id} value={direction.direction} onClick={(event)=>showStops(event)}>{direction.direction}</Button>)
     })
 
-    
-
-    
 
     function backToSchedule(){
     navigate("/schedule")
@@ -44,7 +37,8 @@ function LineDetails({location, zoomIn}){
         <Box sx={{ width: 600}}>
         <form>
         <Button onClick={backToSchedule}>Back</Button> 
-        <h1>Schedule for bus {lineDetail.route}: {lineDetail.name}</h1>
+        <h1>Schedule for bus {lineDetail.route}: {lineDetail.name} 
+        </h1>
         <Grid container spacing={2}>
             <Grid item xs={12}>
             <ButtonGroup color="secondary" aria-label="medium secondary button group">

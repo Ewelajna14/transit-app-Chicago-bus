@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    
+    
     # POST /users
     def create
         user = User.create!(user_params)
@@ -15,6 +17,7 @@ class UsersController < ApplicationController
             render json: {error: ["Not authorized"]}, status: :unauthorized
         end
     end
+
 
 
 

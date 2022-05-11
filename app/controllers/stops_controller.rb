@@ -1,5 +1,6 @@
 class StopsController < ApplicationController
 
+    
 
     #/routes/:route_id/directions/direction_id/stops
     def index

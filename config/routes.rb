@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end 
 
-  resources :routes, only: [:index, :show] do
+  resources :routes, only: [:index] do
     resources :stops, only: [:index, :show] do
       resources :predictions, only: [:index]
     end
@@ -16,13 +16,19 @@ Rails.application.routes.draw do
 
   resources :vehicles, only: [:show]
 
-  resources :users, only: [:create]
+  resources :users, only: [:create] do 
+    resources :fovourite_lines, only: [:index, :create, :destroy]
+  end
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/me", to: "users#show"
 
   resources :bicycles_stations, only: [:index]
+
+ 
+
+  
   
   
   # Routing logic: fallback requests for React Router.

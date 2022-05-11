@@ -8,10 +8,6 @@ function Login({onLogin, user}){
     const [username, setUsername] = useState("")
     const [pass, setPass] = useState("")
 
-    console.log(user)
-
-   
-
     const navigate = useNavigate()
 
     function navigateToSignUp(){

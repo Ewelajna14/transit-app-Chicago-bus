@@ -1,4 +1,4 @@
 class RouteSerializer < ActiveModel::Serializer
-  attributes :id, :route, :name
+  attributes :id, :route, :name, :liked
   has_many :directions
 end
