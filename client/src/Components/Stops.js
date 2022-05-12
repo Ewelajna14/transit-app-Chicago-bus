@@ -2,7 +2,7 @@
 import { useSelector} from "react-redux";
 import Stop from "./Stop";
 import {useNavigate} from 'react-router-dom';
-import {Button, Table, TableContainer, TableRow, TableBody} from "@mui/material"
+import {Button, Table, TableContainer, TableRow, TableBody, Typography, Box} from "@mui/material"
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import Map from './Map'
 import '../App.css';
@@ -25,7 +25,10 @@ function Stops({changeMapCenter, location, zoomIn}){
     return(
         <>
         <Map class="leaflet-container" stops={stops} location={location} zoomIn={zoomIn}/>
-        <h1>Schedule for bus {lineDetail.route}: {lineDetail.name}</h1>
+        <Box sx={{margin: 5}}>
+        <Typography variant="h4" sx ={{marginTop: 5, marginBottom: 3}}>
+         Schedule for bus {lineDetail.route}: {lineDetail.name}
+         </Typography>
         <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick={backToDetails}><KeyboardReturnIcon/> Back </Button> 
         <TableContainer sx={{ maxHeight: 400, width: 350 }}>
         <Table sx={{ width: 300}} aria-label="simple table">
@@ -42,6 +45,7 @@ function Stops({changeMapCenter, location, zoomIn}){
         </TableBody>
         </Table>
         </TableContainer>
+        </Box>
         </>
     )
 }

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch} from "react-redux";
-import {Button} from "@mui/material"
+import {Button, Typography, Box} from "@mui/material"
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import {useNavigate} from 'react-router-dom';
 import Map from './Map'
@@ -32,7 +32,10 @@ function StopDetail({location, zoomIn, setZoomIn}){
     return(
         <div>
             <Map class="leaflet-container" stops={stops} location={location} zoomIn={zoomIn}/>
-            <h1>Schedule for bus {lineDetail.route}: {lineDetail.name}</h1>
+            <Box sx={{margin: 5}}>
+            <Typography variant="h4" sx ={{marginTop: 5, marginBottom: 3}}>
+            Schedule for bus {lineDetail.route}: {lineDetail.name}
+            </Typography>
             <h2></h2>
             <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick={backToStops}><KeyboardReturnIcon/> Back </Button> 
             <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick ={fetchData}>Refresh</Button>
@@ -43,6 +46,7 @@ function StopDetail({location, zoomIn, setZoomIn}){
                     )
                 })
             }
+            </Box>
         </div>
     )
 }

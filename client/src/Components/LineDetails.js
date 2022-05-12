@@ -1,5 +1,6 @@
 import {useState} from "react"
-import {Box, Grid, Button, ButtonGroup} from "@mui/material"
+import {Box, Grid, Button, ButtonGroup, Typography} from "@mui/material"
+import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import {useNavigate} from 'react-router-dom';
 import { useSelector, useDispatch} from "react-redux";
 import {fetchStops} from "../redux/stopsSlice";
@@ -34,11 +35,11 @@ function LineDetails({location, zoomIn}){
 
     return(
     <div>
-        <Box sx={{ width: 600}}>
-        <form>
-        <Button onClick={backToSchedule}>Back</Button> 
-        <h1>Schedule for bus {lineDetail.route}: {lineDetail.name} 
-        </h1>
+        <Box sx={{margin: 5}}>
+        <Button variant="outlined"  onClick={backToSchedule}><KeyboardReturnIcon/> Back</Button> 
+        <Typography variant="h4" sx ={{marginTop: 5, marginBottom: 3}}>
+         Schedule for bus {lineDetail.route}: {lineDetail.name} 
+        </Typography>
         <Grid container spacing={2}>
             <Grid item xs={12}>
             <ButtonGroup color="secondary" aria-label="medium secondary button group">
@@ -46,10 +47,8 @@ function LineDetails({location, zoomIn}){
             </ButtonGroup>
             </Grid>
         </Grid>
-        <Map class="leaflet-container"  location={location} zoomIn={zoomIn} stops={vehicles}/>
-        </form>
         </Box> 
-       
+        <Map class="leaflet-container"  location={location} zoomIn={zoomIn} stops={vehicles}/>
     </div>)
 }
 

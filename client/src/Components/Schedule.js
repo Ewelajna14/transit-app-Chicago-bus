@@ -1,4 +1,4 @@
-import {Box, Grid, TextField, Button, ButtonGroup} from "@mui/material"
+import {Box, Grid, TextField, Button,  Typography} from "@mui/material"
 import {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom";
 import {  useDispatch } from "react-redux";
@@ -37,43 +37,42 @@ const dispatch = useDispatch();
    
 
    const routes_array = searchRoutes.map((route)=>{
-    return(<Button sx={{width:50}} title = {route.name} key={route.id} id ={route.id} onClick={showLine} value={route.route}>{route.route}</Button>)
+    return(<Button variant="outlined" sx={{width:50, margin: 0.5}} title = {route.name} key={route.id} id ={route.id} onClick={showLine} value={route.route}>{route.route}</Button>)
    })
    
 
     return(
         <>
-        <Box sx={{ width: 600,}}>
-        <form>  
-        <h1>Schedule</h1>
-
+        <Box sx={{ width: 600, margin: 5}}>
+        <Typography variant="h3">
+         Schedule
+        </Typography>
         <Grid container spacing={2}>
             <Grid item xs={12}>
                  <TextField 
+                   sx={{
+                       width: 300,
+                       marginTop: 5
+                   }}
                     id="outlined-basic" 
                     variant="outlined"
-                    placeholder="Look for the route"
+                    placeholder="Look for the route name"
                     value={search}
                     onChange={searchRoute}/>  
             </Grid>
             <Grid item xs={12}>
             <Box sx={{
-                 display: 'flex',
-                 flexDirection: 'column',
+                width: 600,
+                 display: 'flex',                              
+                 flexDirection: 'row',
                  alignItems: 'left',
-                 '& > *': {
-                 m: 1,
                  flexWrap: 'wrap',
-                 justifyContent: 'flex-start',
-                 },
+                 m: 1,
                 }}>
-                     <ButtonGroup color="secondary" aria-label="medium secondary button group">
-                     {routes_array}
-                     </ButtonGroup>     
+                     {routes_array} 
           </Box>
           </Grid>
         </Grid>
-        </form>
         </Box> 
         </>
     )
@@ -81,3 +80,4 @@ const dispatch = useDispatch();
 
 
 export default Schedule
+
