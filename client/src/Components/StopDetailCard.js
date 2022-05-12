@@ -1,19 +1,9 @@
-import {useDispatch} from "react-redux";
-import {fetchPredictions} from "../redux/predictionsSlice";
-import {useEffect} from "react"
+
 import {Grid, Card, CardContent, Typography} from '@mui/material'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 function StopDetailCard({prediction}){
-
-
-    
-    //const dispatch = useDispatch()
-
-    //useEffect(()=>{
-    //dispatch(fetchPredictions({line: lineDetail.route, stop: prediction.stpid}))
-   // }, [dispatch])
     
 return(
     <Card  sx={{ width: 600, marginBottom: 5, marginLeft: 5}}>
