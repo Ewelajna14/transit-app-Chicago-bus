@@ -32,14 +32,14 @@ const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getF
             justifyContent:"center",
             width: 900,
             height: "100vh",
-            backgroundColor: '#64748B40',
+            //backgroundColor: '#64748B40',
             
             margin: 'auto',
         }}
         >
             <Grid sx={{ flexGrow: 1, alignItems:"center" }} container spacing={4}>
             <Grid item xs={4}>
-                <Card onClick={navigateToSchedule}>
+                <Card elevation={15} onClick={navigateToSchedule}>
                     <CardContent>
                         <Typography variant="h5" component="div">
                               Bus Schedule
@@ -61,7 +61,7 @@ const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getF
             </Grid>
 
             <Grid item xs={4}>
-                <Card onClick={navigateToBicycles}>
+                <Card elevation={15} onClick={navigateToBicycles}>
                     <CardContent>
                         <Typography variant="h5" component="div">
                               Bicycles
@@ -81,7 +81,7 @@ const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getF
             </Grid>
 
             <Grid item xs={4}>
-                <Card onClick={navigateToLogin}>
+                <Card elevation={15} onClick={navigateToLogin}>
                     <CardContent>
                         <Typography variant="h5" component="div">
                               Log In 
