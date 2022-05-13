@@ -4,8 +4,9 @@ import {useNavigate} from "react-router-dom";
 import {  useDispatch } from "react-redux";
 import {fetchLine} from "../redux/lineSlice"
 import { fetchVehicles } from "../redux/vehiclesSlice";
+import Map from "./Map";
 
-function Schedule(){
+function Schedule({location, zoomIn}){
 
     const[routes, setRoutes] = useState([])
     const [search, setSearch] = useState("")
@@ -24,7 +25,7 @@ const dispatch = useDispatch();
    function showLine(event){
    const line = event.target
    dispatch(fetchLine(line.id))
-   dispatch(fetchVehicles(line.value))
+   //dispatch(fetchVehicles(line.value))
    navigate("/details")
    }
 
@@ -37,43 +38,46 @@ const dispatch = useDispatch();
    
 
    const routes_array = searchRoutes.map((route)=>{
-    return(<Button variant="outlined" sx={{width:50, margin: 0.5}} title = {route.name} key={route.id} id ={route.id} onClick={showLine} value={route.route}>{route.route}</Button>)
+    return(<Button variant="outlined" sx={{ margin: 0.5}} title = {route.name} key={route.id} id ={route.id} 
+    onClick={showLine} value={route.route}>{route.route}</Button>)
    })
    
 
     return(
         <>
-        <Box sx={{ width: 600, margin: 5}}>
-        <Typography variant="h3">
-         Schedule
-        </Typography>
-        <Grid container spacing={2}>
-            <Grid item xs={12}>
-                 <TextField 
-                   sx={{
-                       width: 300,
-                       marginTop: 5
-                   }}
-                    id="outlined-basic" 
-                    variant="outlined"
-                    placeholder="Look for the route name"
-                    value={search}
-                    onChange={searchRoute}/>  
-            </Grid>
-            <Grid item xs={12}>
-            <Box sx={{
-                width: 600,
-                 display: 'flex',                              
-                 flexDirection: 'row',
-                 alignItems: 'left',
-                 flexWrap: 'wrap',
-                 m: 1,
-                }}>
-                     {routes_array} 
-          </Box>
-          </Grid>
+        <Grid container spacing={2} sx={{margin: "auto"}}>
+
+              <Grid item xs={12}>
+                     <TextField 
+                        sx={{
+                            //width: 300,
+                            marginTop: 5
+                        }}
+                            id="outlined-basic" 
+                            variant="outlined"
+                            placeholder="Look for the route name"
+                            value={search}
+                            onChange={searchRoute}/> 
+                </Grid>
+
+                  <Grid item xs={5}>
+                        <Box sx={{
+                            //width: 600,
+                            display: 'flex',                              
+                            flexDirection: 'row',
+                            alignItems: 'left',
+                            flexWrap: 'wrap',
+                            //m: 1,
+                            }}>
+                                {routes_array} 
+                        </Box> 
+                    </Grid>
+
+                     <Grid item xs={7}>
+                     <Map class="leaflet-container" location={location} zoomIn={zoomIn}/>
+                     </Grid>
         </Grid>
-        </Box> 
+        
         </>
     )
 }

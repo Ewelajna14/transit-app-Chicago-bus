@@ -10,6 +10,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import MyAccount from "./MyAccount";
 import BicyclesMain from "./bicycles/BicyclesMain";
+import "../App.css"
 
 
 function App() {
@@ -42,21 +43,24 @@ function App() {
   }
 
   return (
-    <div>
+    <>
     <NavBar user={user} setUser={setUser}/>
+    <div className>
+    <div className >
     <Routes>
       <Route exact path="/" element={<Home/>}></Route>
       <Route exact path= "/login" element={<Login onLogin={onLogin} user={user}/>}></Route>
       <Route exact path = "/signup" element={<SignUp onLogin={onLogin}/>}></Route>
       <Route exact path="/myAccount" element={<MyAccount user={user} setUser={setUser}/>}></Route>
-      <Route exact path ="/schedule" element={<Schedule/>}/>
+      <Route exact path ="/schedule" element={<Schedule  location={location} zoomIn={zoomIn}/>}/>
       <Route exact path="/bicycles" element={<BicyclesMain user={user}/>}/>
-      <Route exact path ="/details" element={<LineDetails location={location} zoomIn={zoomIn} />}/>
+      <Route exact path ="/details" element={<LineDetails location={location} zoomIn={zoomIn} changeMapCenter={changeMapCenter}/>}/>
       <Route exact path ="/stops" element={<Stops changeMapCenter={changeMapCenter} location={location} zoomIn={zoomIn}/>}/>
       <Route exact path ="/stopDetail" element={<StopDetail location={location} zoomIn={zoomIn} setZoomIn={setZoomIn}/>}/>
     </Routes>
-   
     </div>
+    </div>
+    </>
   );
 }
 

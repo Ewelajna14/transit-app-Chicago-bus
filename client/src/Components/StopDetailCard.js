@@ -6,7 +6,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 function StopDetailCard({prediction}){
     
 return(
-    <Card  sx={{ width: 600, marginBottom: 5, marginLeft: 5}}>
+    <Card  sx={{ width: 570, marginBottom: 5, marginLeft: 2}}>
         <CardContent>
         <Grid container spacing={2}>
         <Grid item xs={8}>   

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch} from "react-redux";
-import {Button, Typography, Box} from "@mui/material"
+import {Button, Typography, Grid} from "@mui/material"
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import {useNavigate} from 'react-router-dom';
 import Map from './Map'
@@ -19,7 +19,7 @@ function StopDetail({location, zoomIn, setZoomIn}){
     const dispatch = useDispatch()
 
     function backToStops(){
-        navigate("/stops")
+        navigate("/details")
         setZoomIn(11)
     }
 
@@ -31,22 +31,29 @@ function StopDetail({location, zoomIn, setZoomIn}){
     
     return(
         <div>
+            <Grid container spacing={2} sx={{margin: "auto"}}>
+
+            <Grid item xs={5}>
+                <Typography variant="h4" sx ={{marginTop: 5, marginBottom: 3}}>
+                Schedule for bus {lineDetail.route}: {lineDetail.name}
+                </Typography>
+                <h2></h2>
+                <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick={backToStops}><KeyboardReturnIcon/> Back </Button> 
+                <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick ={fetchData}>Refresh</Button>
+                {
+                    predictions && predictions.prd?.map((prediction)=>{
+                        return(
+                            <StopDetailCard key={prediction.tatripid} prediction={prediction}/>
+                        )
+                    })
+                }
+            </Grid>
+            <Grid item xs={7}>
             <Map class="leaflet-container" stops={stops} location={location} zoomIn={zoomIn}/>
-            <Box sx={{margin: 5}}>
-            <Typography variant="h4" sx ={{marginTop: 5, marginBottom: 3}}>
-            Schedule for bus {lineDetail.route}: {lineDetail.name}
-            </Typography>
-            <h2></h2>
-            <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick={backToStops}><KeyboardReturnIcon/> Back </Button> 
-            <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick ={fetchData}>Refresh</Button>
-            {
-                predictions && predictions.prd?.map((prediction)=>{
-                    return(
-                        <StopDetailCard key={prediction.tatripid} prediction={prediction}/>
-                    )
-                })
-            }
-            </Box>
+            </Grid>
+
+             </Grid>
+        
         </div>
     )
 }

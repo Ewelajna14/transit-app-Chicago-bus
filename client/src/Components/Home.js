@@ -1,5 +1,6 @@
 import {Grid, Box, Card, CardContent, CardMedia, Typography} from "@mui/material"
 import {useNavigate} from "react-router-dom";
+import "../App.css"
 
 function Home(){
 

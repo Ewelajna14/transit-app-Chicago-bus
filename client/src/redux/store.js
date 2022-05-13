@@ -14,9 +14,9 @@ import favLineReducer from "./favLineSlice";
 
 const reducers = combineReducers({
         line: lineReducer,
-        stops: stopsReducer,
         vehicles: vehiclesReducer,
-        buses: busesReducer 
+        buses: busesReducer,
+        stops: stopsReducer
   });
 
   const persistConfig = {
@@ -31,7 +31,8 @@ const reducers = combineReducers({
        persisted: persistedReducer,
        predictions: predictionsReducer,
        favLine: favLineReducer,
-       bstations: bicyclesStationsReducer
+       bstations: bicyclesStationsReducer,
+       
       },
     devTools: process.env.NODE_ENV !== 'production',
     middleware: [thunk],
