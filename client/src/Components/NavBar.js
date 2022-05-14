@@ -2,9 +2,13 @@
 import {AppBar, Toolbar, IconButton, Typography, Button} from "@mui/material"
 import Menu from '@mui/icons-material/MenuOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { NavLink} from "react-router-dom";
+import { NavLink, useNavigate} from "react-router-dom";
 
 function NavBar({user, setUser}){
+
+  console.log(user)
+
+  const navigate = useNavigate()
 
   function handleLogOut(){
     fetch("/logout", {
@@ -16,6 +20,7 @@ function NavBar({user, setUser}){
       }
     } 
     )
+    navigate("/")
   }
 
     const theme = createTheme({
@@ -38,28 +43,28 @@ return(
        <IconButton>
              <Menu sx={{ color: "white"}}/>
        </IconButton>
-       <Typography variant="h6" sx={{ mr: 2}}>
-       <NavLink to="/" style={{"text-decoration": "none", color: "white"}}>  
+       <Typography variant="h6" sx={{ mr: 2, fontFamily: 'Varela Round, sans-serif'}}>
+       <NavLink to="/home" style={{"text-decoration": "none", color: "white"}}>  
        Home
        </NavLink>  
        </Typography>
-       <Typography variant="h6" sx={{ mr: 2}}>
+       <Typography variant="h6" sx={{ mr: 2, fontFamily: 'Varela Round, sans-serif'}}>
          <NavLink to="/schedule" style={{"text-decoration": "none", color: "white"}}>
           Schedule
         </NavLink>  
         </Typography>
-       <Typography variant="h6" sx={{ mr: 2}}>
+       <Typography variant="h6" sx={{ mr: 2, fontFamily: 'Varela Round, sans-serif'}}>
        <NavLink to="/bicycles" style={{"text-decoration": "none", color: "white"}}>
          Bicycles
          </NavLink>  
          </Typography>
-       <Typography variant="h6" sx={{ mr: 2, flexGrow: 1 }}>
+       <Typography variant="h6" sx={{ mr: 2, flexGrow: 1, fontFamily: 'Varela Round, sans-serif' }}>
        <NavLink to="/myAccount" style={{"text-decoration": "none", color: "white"}}>
          MyAccount
          </NavLink>  
        </Typography>
        {
-         user? <Typography variant="h6" sx={{ mr: 2}}>Hello {user.first_name} <Button variant="text" sx={{color:"white"}} onClick={handleLogOut}> Log out</Button></Typography> : null
+         user? <Typography variant="h6" sx={{ mr: 2, fontFamily: 'Varela Round, sans-serif'}}>Hello {user.first_name} <Button variant="text" sx={{color:"white"}} onClick={handleLogOut}> Log out</Button></Typography> : null
        }
        
    </Toolbar>

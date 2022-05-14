@@ -1,4 +1,4 @@
-import {useNavigate} from "react-router-dom"
+
 import {useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux"
 import {fetchFavLine} from "../redux/favLineSlice";
@@ -10,26 +10,13 @@ import {Typography, Grid, Box} from "@mui/material"
 
 function MyAccount({user}){
 
-    console.log(user)
+const dispatch = useDispatch()
 
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
-
-    useEffect(()=>{
-        if (user == null){
-            navigate("/login")
-        }
-         }, [user])
-
-  useEffect(()=>{
-      if (user) {
+  useEffect(()=>{ 
    dispatch(fetchFavLine(user.id)) 
-   } else{
-    navigate("/login")
-   }
    }, [dispatch])
 
-   const favLine = useSelector((state)=> state.favLine.entities)
+const favLine = useSelector((state)=> state.favLine.entities)
   
 function onAddFavLine(route, name, busId){
 
@@ -60,14 +47,14 @@ dispatch(deleteFavLine({user: user, id: id}))
         }}
         >
             <Grid item xs={12}>
-            <Typography variant="h4">
+            <Typography variant="h4" sx={{fontFamily: 'Varela Round, sans-serif'}}>
                 Hello {user? user.first_name: null}
             </Typography>
-            <Typography variant="h6" sx={{marginTop: 2, marginBottom: 2}}>
+            <Typography variant="h6" sx={{marginTop: 2, marginBottom: 2, fontFamily: 'Varela Round, sans-serif'}}>
             Search For Favourite Lines: 
             </Typography>
             <SearchBar onAddFavLine={onAddFavLine}/>
-            <Typography variant="h5" component="div" sx={{marginTop: 10, marginBottom: 2}}>
+            <Typography variant="h5" component="div" sx={{marginTop: 10, marginBottom: 2, fontFamily: 'Varela Round, sans-serif'}}>
                         Your Favourite Lines
             </Typography>
             </Grid>

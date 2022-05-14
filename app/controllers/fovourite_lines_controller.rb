@@ -1,5 +1,7 @@
 class FovouriteLinesController < ApplicationController
 
+  
+
     #GET users/:user_id/fovourite_lines
     def index
         user = User.find(params[:user_id])
@@ -29,6 +31,7 @@ class FovouriteLinesController < ApplicationController
     params.fetch(:fovourite_line, {}).permit(:user_id, :route, :name, :busId, :liked => [])
     end
 
+    
 
 
 

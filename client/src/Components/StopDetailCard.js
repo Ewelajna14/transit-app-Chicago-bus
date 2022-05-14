@@ -13,10 +13,10 @@ return(
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
         time: {prediction.tmstmp}
         </Typography>
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" component="div" sx={{fontFamily: 'Varela Round, sans-serif'}}>
          {prediction.stpnm} 
         </Typography>
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" component="div" sx={{fontFamily: 'Varela Round, sans-serif'}}>
         destionation <ArrowForwardIcon fontSize="medium"/> {prediction.des}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -24,10 +24,10 @@ return(
         </Typography>
         </Grid>
         <Grid item xs={4}>
-        <Typography variant="h5" component="div">
+        <Typography variant="h5" component="div" sx={{fontFamily: 'Varela Round, sans-serif'}}>
          time left  
         </Typography>
-        <Typography variant="h4" component="div">
+        <Typography variant="h4" component="div" sx={{fontFamily: 'Varela Round, sans-serif'}}>
         {prediction.prdctdn} min
         </Typography>
         </Grid>

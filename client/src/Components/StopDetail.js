@@ -34,11 +34,11 @@ function StopDetail({location, zoomIn, setZoomIn}){
             <Grid container spacing={2} sx={{margin: "auto"}}>
 
             <Grid item xs={5}>
-                <Typography variant="h4" sx ={{marginTop: 5, marginBottom: 3}}>
+                <Typography variant="h4" sx ={{marginTop: 5, marginBottom: 3, fontFamily: 'Varela Round, sans-serif'}}>
                 Schedule for bus {lineDetail.route}: {lineDetail.name}
                 </Typography>
                 <h2></h2>
-                <Button variant="outlined" sx={{color: '#64748B', margin: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',transition: '0.7s',color: 'white'} }} onClick={backToStops}><KeyboardReturnIcon/> Back </Button> 
+                <Button variant="outlined" sx={{color: '#64748B',  margin: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',transition: '0.7s',color: 'white'} }} onClick={backToStops}><KeyboardReturnIcon/> Back </Button> 
                 <Button variant="outlined" sx={{color: '#64748B', margin: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',transition: '0.7s',color: 'white'} }} onClick ={fetchData}>Refresh</Button>
                 {
                     predictions && predictions.prd?.map((prediction)=>{

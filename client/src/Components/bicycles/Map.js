@@ -67,8 +67,8 @@ function Map({bstations}){
               },
             }}>
             <Popup>
-             <h4>{station.name}</h4>
-             <h5>Total Docks {station.capacity}</h5>
+             <h3>{station.name}</h3>
+             <h4>Total Docks {station.capacity}</h4>
              <Button sx={{fontSize: 12, color: '#64748B', marginRight: 1, '&:hover': { backgroundColor: '#959BBF',
               transition: '0.7s',color: 'white'}}} onClick={handleZoom}>Zoom In</Button>
              <Button sx={{fontSize: 12, color: '#64748B', marginRight: 1, '&:hover': { backgroundColor: '#959BBF',

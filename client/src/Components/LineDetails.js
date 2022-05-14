@@ -35,7 +35,7 @@ function LineDetails({location, zoomIn, changeMapCenter}){
     <div>
         <Grid container spacing={2} sx={{margin: "auto"}}>
                 <Grid item xs={5}>
-                        <Typography variant="h4" sx ={{marginTop: 5, marginBottom: 3}}>
+                        <Typography variant="h4" sx ={{marginTop: 5, marginBottom: 3, fontFamily: 'Varela Round, sans-serif'}}>
                                  Schedule for bus {lineDetail.route}: {lineDetail.name} 
                         </Typography>
 

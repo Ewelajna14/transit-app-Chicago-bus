@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-    
+    skip_before_action :authorize, only: :create
     
     #POST /login
     def create

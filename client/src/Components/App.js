@@ -13,6 +13,7 @@ import BicyclesMain from "./bicycles/BicyclesMain";
 import "../App.css"
 
 
+
 function App() {
 
   const navigate = useNavigate()
@@ -39,18 +40,27 @@ function App() {
 
   function  onLogin(newUser){
   setUser(newUser)
-  navigate("/")
+  navigate("/home")
+  }
+
+  if (!user) {
+   return(
+     <div>
+       <Routes>
+        <Route exact path= "/" element={<Login onLogin={onLogin} user={user}/>}></Route>
+        <Route exact path = "/signup" element={<SignUp onLogin={onLogin}/>}></Route>
+       </Routes>
+     </div>
+   )   
   }
 
   return (
- 
-    <div >
+    <>
     <NavBar user={user} setUser={setUser}/>
+    <div className="main-bg">
     <div className="bg-content">
     <Routes>
-      <Route exact path="/" element={<Home/>}></Route>
-      <Route exact path= "/login" element={<Login onLogin={onLogin} user={user}/>}></Route>
-      <Route exact path = "/signup" element={<SignUp onLogin={onLogin}/>}></Route>
+      <Route exact path="/home" element={<Home/>}></Route>
       <Route exact path="/myAccount" element={<MyAccount user={user} setUser={setUser}/>}></Route>
       <Route exact path ="/schedule" element={<Schedule  location={location} zoomIn={zoomIn}/>}/>
       <Route exact path="/bicycles" element={<BicyclesMain user={user}/>}/>
@@ -60,7 +70,7 @@ function App() {
     </Routes>
     </div>
     </div>
-   
+    </>
   );
 }
 

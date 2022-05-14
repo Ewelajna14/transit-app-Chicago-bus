@@ -1,4 +1,4 @@
-import {Grid, Box, Card, CardContent, CardMedia, Typography} from "@mui/material"
+import {Grid, Card, CardContent, CardMedia, Typography} from "@mui/material"
 import {useNavigate} from "react-router-dom";
 import "../App.css"
 
@@ -10,9 +10,7 @@ function navigateToSchedule(){
     navigate("/schedule")
 }
 
-function navigateToLogin(){
-    navigate("/login")
-}
+
 
 function navigateToBicycles(){
     navigate("/bicycles")
@@ -26,79 +24,69 @@ const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getF
 
 
     return(
-        <Box
-        sx={{
-            display: "flex", 
-            alignItems:"center",
-            justifyContent:"center",
-            width: '70%',
-            height: "100vh",
-            margin: 'auto',
-        }}
-        >
-            <Grid sx={{ flexGrow: 1, alignItems:"center", width:'100%', height: '60%' }} container spacing={3}>
-            <Grid item xs={4}>
-                <Card elevation={15} onClick={navigateToSchedule} sx={{width:'100%', height: '100%'}}>
-                    <CardContent>
-                        <Typography variant="h5" component="div">
-                              Bus Schedule
+        <div className="bg-photo">
+        <div className="bg-photo-text">
+         <Grid sx={{ 
+                alignItems:"center", 
+                justifyContent:"center",
+               // margin: 'auto'
+                }} 
+                container spacing={1}>
+            <Grid item xs={12} align="center">
+                        <Typography variant ="h2" sx={{marginTop: 4, color: 'white', textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black', fontFamily: 'Varela Round, sans-serif' }}>
+                          Chicago
                         </Typography>
-                        <Typography sx={{ fontSize: 18 }} color="text.secondary" gutterBottom>
+ 
+            </Grid>
+            <Grid item xs={12} align="center">
+                        <Typography sx={{ fontSize: 28, color: 'white', textShadow: '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black', fontFamily: 'Varela Round, sans-serif'  }} >
                          {date}
                         </Typography>
+
+            </Grid>
+            <Grid item xs={6} align="center">
+                <Card elevation={15} onClick={navigateToSchedule} sx={{width:'50%', height: '50%', opacity: "80%"}}>
+                    <CardContent>
+                        <Typography variant="h5" sx={{marginBottom: 2, fontFamily: 'Varela Round, sans-serif'}}>
+                              Bus Schedule
+                        </Typography>
+                        <Typography variant="h7" component="div" sx={{marginBottom: 2}}>
+                          Check today's timetable for CTA Bus.
+                        </Typography>
                         <CardMedia
                         component="img"
-                        image = "/bus_schedule.svg"
-                        sx={{width: '80%', height: '60%'}}
+                        image = "/bus2.svg"
+                        sx={{width:'70%', height: '70%'}}
                         />
-                        <Typography variant="h7" component="div" sx={{height:'20%'}}>
-                          A List of bus lines, for which you can check the timetable
-                          for today.
-                        </Typography>
+                     
                     </CardContent>
                 </Card>
             </Grid>
 
-            <Grid item xs={4} sx={{padding: 'none'}}>
-                <Card elevation={15} onClick={navigateToBicycles} sx={{width:'100%', height: '100%', paddingTop: 2, paddingBottom: 2.5 }}>
+            <Grid item xs={6} align="center">
+                <Card elevation={15} onClick={navigateToBicycles} sx={{width:'50%', height: '50%',  opacity: "80%"}}>
                     <CardContent>
-                        <Typography variant="h5" component="div" sx={{height:'20%'}}>
+                        <Typography variant="h5" sx={{marginBottom: 2, fontFamily: 'Varela Round, sans-serif'}}>
                               Bicycles
                         </Typography>
-                        <CardMedia
-                        component="img"
-                        image = "/bike.svg"
-                        sx={{ width: '80%', height: '60%'}}
-                        />
-                        <Typography variant="h7" component="div" sx={{height:'20%'}}>
-                        A list of the stations where one can pick up
-                        and return bicycles from the Divvy bicycle
+                        <Typography variant="h7" component="div" sx={{marginBottom: 2}}>
+                        Check stations for the Divvy bicycle
                         sharing system.
                         </Typography>
-                    </CardContent>
-                </Card>
-            </Grid>
-
-            <Grid item xs={4} sx={{padding: 'none'}}>
-                <Card elevation={15} onClick={navigateToLogin} sx={{width:'100%', height: '100%', paddingTop: 1, paddingBottom: 2.5}}>
-                    <CardContent>
-                        <Typography variant="h5" component="div" sx={{height:'20%'}}>
-                              Log In 
-                        </Typography>
                         <CardMedia
                         component="img"
-                        image = "/user.svg"
-                        sx={{width: '80%', height: '50%', marginBottom: 1.5}}
+                        image = "/bike3.svg"
+                        sx={{width:'70%', height: '70%'}}
                         />
-                        <Typography variant="h7" component="div" sx={{height:'30%'}}>
-                         Log in or sign in to access your account
-                        </Typography>
+                       
                     </CardContent>
                 </Card>
-            </Grid>    
+            </Grid>
 
             </Grid>
-        </Box>    
+            </div>
+            </div>
+     
     )
 }
 

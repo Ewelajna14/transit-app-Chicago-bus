@@ -50,7 +50,7 @@ const dispatch = useDispatch();
    
 
     return(
-        <>
+        <div>
         <Grid container spacing={2} sx={{margin: "auto"}}>
 
               <Grid item xs={5}>
@@ -87,7 +87,7 @@ const dispatch = useDispatch();
                      </Grid>
         </Grid>
         
-        </>
+        </div>
     )
 }
 

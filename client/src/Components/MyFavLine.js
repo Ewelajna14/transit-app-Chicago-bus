@@ -24,10 +24,10 @@ function MyFavLine({user, fav, onDelete}){
     return(
             <Card elevation={10} sx={{ width: '20%', marginBottom: 5}}>
                 <CardContent>
-                    <Typography variant="h5" component="div" sx={{ mb: 1.5 }} color="text.secondary">
+                    <Typography variant="h5" component="div" sx={{ mb: 1.5, fontFamily: 'Varela Round, sans-serif' }} color="text.secondary">
                      Bus:  {fav.route}
                     </Typography>
-                    <Typography variant="h5" component="div" sx={{ mb: 1.5 }} color="text.secondary">
+                    <Typography variant="h5" component="div" sx={{ mb: 1.5, fontFamily: 'Varela Round, sans-serif'}} color="text.secondary">
                       Route: {fav.name}
                     </Typography>
                      <Button id = {fav.id} sx={{color: '#64748B', marginRight: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',
