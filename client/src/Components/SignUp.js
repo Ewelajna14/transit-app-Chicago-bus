@@ -74,7 +74,7 @@ function SignUp({onLogin}){
                 <TextField value ={username} onChange={(e)=>setUsername(e.target.value)}variant="standard" label="Username" placeholder="Enter username" fullWidth required/>
                 <TextField value ={pass} onChange={(e)=>setPass(e.target.value)}variant="standard" type="password"  label="Password" placeholder="Enter password" fullWidth required/>
                 <TextField value ={confPass} onChange={(e)=>setConffPass(e.target.value)}variant="standard" type="password"  label="Confirm Password" placeholder="Enter password" fullWidth required sx={{marginBottom: 3}}/>
-                <Typography variant="h9" sx={{marginTop: 5}}>Already have an account?</Typography><Link href="/login" sx={{margin: 2}}>Login</Link>
+                <Typography variant="h9" sx={{marginTop: 5}}>Already have an account?</Typography><Link href="/" sx={{margin: 2}}>Login</Link>
                 <Button type="submit" variant="contained" fullWidth required sx={{marginTop: 5}} >Sign Up</Button>
                 </Grid>
                 </form>

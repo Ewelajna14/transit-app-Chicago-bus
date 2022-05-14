@@ -45,11 +45,13 @@ function App() {
 
   if (!user) {
    return(
-     <div>
+     <div className="main-bg">
+       <div className="bg-content">
        <Routes>
         <Route exact path= "/" element={<Login onLogin={onLogin} user={user}/>}></Route>
         <Route exact path = "/signup" element={<SignUp onLogin={onLogin}/>}></Route>
        </Routes>
+       </div>
      </div>
    )   
   }
