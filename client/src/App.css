@@ -1,10 +1,14 @@
 
 .leaflet-container{
-  display: block;
-  width: 50vw;
-  height: 85vh;
- 
-  
+  position: block;
+  border-radius: 10px;
+  height: 85vh; 
+}
+
+.leaf-map{
+  width: 85vw;
+  position: block;
+  border-radius: 10px;
 }
 
 .dataResults {
@@ -28,14 +32,39 @@ display: flex;
 align-items: center;
 }
 
-body, html {
-  height: 100%;
+button {
+   background-color:transparent;
+   color: #64748B;
+   margin: 4px;
+   border: 1px solid #959BBF;
+   border-radius: 2px;
+   min-width: 6ch;
+   min-height: 30px;
+   text-align: center;
+   font-weight: bold;
+   font-size: 15px;
+
 }
 
-* {
-  box-sizing: border-box;
- 
+button:hover {
+  background-color:#959BBF;
+  transition: 0.7s;
+  color: white;
 }
+
+
+.bg-content{
+  width: 100%;
+  min-height: 100vh;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 1%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+
 
  .bg-image {
 
@@ -46,6 +75,10 @@ body, html {
   /* Add the blur effect */
  /* filter: blur(8px);
   -webkit-filter: blur(8px);
+  * {
+  box-sizing: border-box;
+ 
+}
 
   /* Full height */
   height: 100%;
@@ -60,9 +93,9 @@ body, html {
 }
 
 /* Position text in the middle of the page/image */
-.bg-content {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+.bg-content-x {
+ /* background-color: rgb(0,0,0); /* Fallback color */
+ /* background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
   color: white;
   font-weight: bold;
   border: 3px solid #f1f1f1;
@@ -72,8 +105,8 @@ body, html {
   transform: translate(-50%, -50%);
   z-index: 2;
   width: 100%;
-  padding: 20px;
-  text-align: center;
+ /* padding: 20px;
+ /* text-align: center; */
 }
 
 

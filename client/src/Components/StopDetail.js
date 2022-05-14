@@ -38,8 +38,8 @@ function StopDetail({location, zoomIn, setZoomIn}){
                 Schedule for bus {lineDetail.route}: {lineDetail.name}
                 </Typography>
                 <h2></h2>
-                <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick={backToStops}><KeyboardReturnIcon/> Back </Button> 
-                <Button variant="outlined" sx ={{marginBottom: 5, marginLeft: 5}} onClick ={fetchData}>Refresh</Button>
+                <Button variant="outlined" sx={{color: '#64748B', margin: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',transition: '0.7s',color: 'white'} }} onClick={backToStops}><KeyboardReturnIcon/> Back </Button> 
+                <Button variant="outlined" sx={{color: '#64748B', margin: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',transition: '0.7s',color: 'white'} }} onClick ={fetchData}>Refresh</Button>
                 {
                     predictions && predictions.prd?.map((prediction)=>{
                         return(

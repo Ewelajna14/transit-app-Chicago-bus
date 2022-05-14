@@ -1,5 +1,5 @@
 import {useState} from "react"
-import {Box, Grid, Button, ButtonGroup, Typography} from "@mui/material"
+import { Grid, Button, Typography} from "@mui/material"
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import {useNavigate} from 'react-router-dom';
 import { useSelector, useDispatch} from "react-redux";
@@ -34,29 +34,39 @@ function LineDetails({location, zoomIn, changeMapCenter}){
     return(
     <div>
         <Grid container spacing={2} sx={{margin: "auto"}}>
-          <Grid item xs={5}>
-                <Button variant="outlined"  onClick={backToSchedule}><KeyboardReturnIcon/> Back</Button> 
+                <Grid item xs={5}>
                         <Typography variant="h4" sx ={{marginTop: 5, marginBottom: 3}}>
                                  Schedule for bus {lineDetail.route}: {lineDetail.name} 
                         </Typography>
-                <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                            <ButtonGroup color="secondary" aria-label="medium secondary button group">
-                                    {lineDetail.directions?.map((direction)=>{
-                                        return( <Button key={direction.id} value={direction.direction} onClick={(event)=>showStops(event)}>{direction.direction}</Button>)
-                                    })}
-                            </ButtonGroup>
-                    </Grid>
+
+                        <Grid container spacing={2}>
+                                <Grid item xs={3}>
+
+                                <Button variant="outlined" sx={{color: '#64748B', border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',
+                                        transition: '0.7s',color: 'white'} }}  onClick={backToSchedule}><KeyboardReturnIcon/> Back</Button> 
+                                        
+                                </Grid>    
+                                <Grid item xs={9}>
+                                        {lineDetail.directions?.map((direction)=>{
+                                        return( <Button variant="outlined" sx={{color: '#64748B', marginRight: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',
+                                        transition: '0.7s',color: 'white'} }} key={direction.id} value={direction.direction} onClick={(event)=>showStops(event)}>{direction.direction}</Button>)
+                                        })}
+                                </Grid>
+                        </Grid >
+                        <div style={{marginTop: '5px'}}>
+
+                        { stops != 0 && (
+                        <Stops location={location} zoomIn={zoomIn} stops={stops} changeMapCenter={changeMapCenter}/>
+                        )}
+
+                        </div>
+
+
                 </Grid>
 
-                { stops != 0 && (
-                  <Stops location={location} zoomIn={zoomIn} stops={stops} changeMapCenter={changeMapCenter}/>
-                )}
-        </Grid>
-
-                <Grid item xs={7}>
-                      <Map class="leaflet-container" stops={stops} location={location} zoomIn={zoomIn}/>
-                </Grid>
+                        <Grid item xs={7}>
+                        <Map class="leaflet-container" stops={stops} location={location} zoomIn={zoomIn}/>
+                        </Grid>
         </Grid> 
     </div>)
 }

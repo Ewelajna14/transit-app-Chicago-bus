@@ -22,7 +22,7 @@ function MyFavLine({user, fav, onDelete}){
 
     
     return(
-            <Card elevation={10} sx={{ width: 300, marginBottom: 5}}>
+            <Card elevation={10} sx={{ width: '20%', marginBottom: 5}}>
                 <CardContent>
                     <Typography variant="h5" component="div" sx={{ mb: 1.5 }} color="text.secondary">
                      Bus:  {fav.route}
@@ -30,8 +30,10 @@ function MyFavLine({user, fav, onDelete}){
                     <Typography variant="h5" component="div" sx={{ mb: 1.5 }} color="text.secondary">
                       Route: {fav.name}
                     </Typography>
-                     <Button id = {fav.id} onClick={handleDelete}><CloseIcon/></Button>
-                     <Button id = {fav.busId} onClick={handleRedirect}> Show Line</Button>
+                     <Button sx={{color: '#64748B', marginRight: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',
+                                        transition: '0.7s',color: 'white'}}} id = {fav.id} onClick={handleDelete}><CloseIcon/></Button>
+                     <Button sx={{color: '#64748B', marginRight: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',
+                                        transition: '0.7s',color: 'white'}}} id = {fav.busId} onClick={handleRedirect}> Show Line</Button>
                 </CardContent>
             </Card>
         

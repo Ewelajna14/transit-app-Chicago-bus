@@ -22,7 +22,7 @@ function Stop({stop, lineDetail, changeMapCenter}){
 
     return (
     <li>
-      <Button id ={stop.stpid} value={[stop.lat, stop.lon]} onClick={showStop}>{stop.stpnm}</Button>
+      <Button variant="text" sx={{textAlign: "left", color: '#64748B', '&:hover': {backgroundColor: '#959BBF', transition: '0.7s', color: 'white'} }}id ={stop.stpid} value={[stop.lat, stop.lon]} onClick={showStop}>{stop.stpnm}</Button>
     </li>)
 
 }

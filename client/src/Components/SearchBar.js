@@ -52,7 +52,7 @@ function SearchBar({onAddFavLine}){
             <TextField
             value={inputWord}
             sx={{
-                width: 300,
+                width: '20%',
             }}
             onChange={handleFilter}
             InputProps={{

@@ -52,13 +52,14 @@ dispatch(deleteFavLine({user: user, id: id}))
 
 
     return(
-        <Box 
+        <Grid container spacing={2}
         sx={{
             margin: "auto",
             marginTop: 5,
             marginLeft: 10
         }}
         >
+            <Grid item xs={12}>
             <Typography variant="h4">
                 Hello {user? user.first_name: null}
             </Typography>
@@ -69,6 +70,8 @@ dispatch(deleteFavLine({user: user, id: id}))
             <Typography variant="h5" component="div" sx={{marginTop: 10, marginBottom: 2}}>
                         Your Favourite Lines
             </Typography>
+            </Grid>
+            <Grid item xs={12}>
             { favLine.length != 0 &&(
             <Box
             sx={{
@@ -91,8 +94,9 @@ dispatch(deleteFavLine({user: user, id: id}))
              }
               </Box> 
              ) }
+             </Grid>
 
-        </Box>
+        </Grid>
     )
 }
 

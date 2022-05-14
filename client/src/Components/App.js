@@ -43,10 +43,10 @@ function App() {
   }
 
   return (
-    <>
+ 
+    <div >
     <NavBar user={user} setUser={setUser}/>
-    <div className>
-    <div className >
+    <div className="bg-content">
     <Routes>
       <Route exact path="/" element={<Home/>}></Route>
       <Route exact path= "/login" element={<Login onLogin={onLogin} user={user}/>}></Route>
@@ -60,7 +60,7 @@ function App() {
     </Routes>
     </div>
     </div>
-    </>
+   
   );
 }
 

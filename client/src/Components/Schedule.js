@@ -1,15 +1,17 @@
-import {Box, Grid, TextField, Button,  Typography} from "@mui/material"
+import {Box, Grid, TextField, InputAdornment} from "@mui/material"
+import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 import {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom";
 import {  useDispatch } from "react-redux";
 import {fetchLine} from "../redux/lineSlice"
-import { fetchVehicles } from "../redux/vehiclesSlice";
 import Map from "./Map";
+import "../App.css"
 
 function Schedule({location, zoomIn}){
 
-    const[routes, setRoutes] = useState([])
-    const [search, setSearch] = useState("")
+const[routes, setRoutes] = useState([])
+const [search, setSearch] = useState("")
 
 const navigate = useNavigate();    
 
@@ -25,7 +27,6 @@ const dispatch = useDispatch();
    function showLine(event){
    const line = event.target
    dispatch(fetchLine(line.id))
-   //dispatch(fetchVehicles(line.value))
    navigate("/details")
    }
 
@@ -33,13 +34,18 @@ const dispatch = useDispatch();
        setSearch(event.target.value)
    }
 
+   function handleClearSearch(){
+    setRoutes(routes)
+    setSearch("")
+}
+
 
    const searchRoutes = routes.filter((route) => route.name.toLowerCase().includes(search.toLowerCase()))
    
 
    const routes_array = searchRoutes.map((route)=>{
-    return(<Button variant="outlined" sx={{ margin: 0.5}} title = {route.name} key={route.id} id ={route.id} 
-    onClick={showLine} value={route.route}>{route.route}</Button>)
+    return(<button  title = {route.name} key={route.id} id ={route.id} 
+    onClick={showLine} value={route.route}>{route.route}</button>)
    })
    
 
@@ -47,34 +53,37 @@ const dispatch = useDispatch();
         <>
         <Grid container spacing={2} sx={{margin: "auto"}}>
 
-              <Grid item xs={12}>
+              <Grid item xs={5}>
                      <TextField 
-                        sx={{
-                            //width: 300,
-                            marginTop: 5
-                        }}
+                            sx={{
+                                width: '80%',
+                                mb: 3
+                            }}
+                            InputProps={{
+                                endAdornment: (
+                                <InputAdornment position="end">
+                                   {search != 0? <CloseIcon  onClick={handleClearSearch}/>: <SearchIcon/> }
+                                </InputAdornment>
+                                )
+                                }}
                             id="outlined-basic" 
                             variant="outlined"
                             placeholder="Look for the route name"
                             value={search}
                             onChange={searchRoute}/> 
-                </Grid>
 
-                  <Grid item xs={5}>
-                        <Box sx={{
-                            //width: 600,
+                            <Box sx={{
                             display: 'flex',                              
                             flexDirection: 'row',
                             alignItems: 'left',
                             flexWrap: 'wrap',
-                            //m: 1,
                             }}>
                                 {routes_array} 
-                        </Box> 
-                    </Grid>
+                            </Box> 
+                </Grid >
 
                      <Grid item xs={7}>
-                     <Map class="leaflet-container" location={location} zoomIn={zoomIn}/>
+                     <Map location={location} zoomIn={zoomIn}/>
                      </Grid>
         </Grid>
         
