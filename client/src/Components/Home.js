@@ -31,16 +31,14 @@ const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getF
             display: "flex", 
             alignItems:"center",
             justifyContent:"center",
-            width: 900,
+            width: '70%',
             height: "100vh",
-            //backgroundColor: '#64748B40',
-            
             margin: 'auto',
         }}
         >
-            <Grid sx={{ flexGrow: 1, alignItems:"center" }} container spacing={4}>
+            <Grid sx={{ flexGrow: 1, alignItems:"center", width:'100%', height: '60%' }} container spacing={3}>
             <Grid item xs={4}>
-                <Card elevation={15} onClick={navigateToSchedule}>
+                <Card elevation={15} onClick={navigateToSchedule} sx={{width:'100%', height: '100%'}}>
                     <CardContent>
                         <Typography variant="h5" component="div">
                               Bus Schedule
@@ -51,9 +49,9 @@ const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getF
                         <CardMedia
                         component="img"
                         image = "/bus_schedule.svg"
-                        sx={{marginBottom: 1}}
+                        sx={{width: '80%', height: '60%'}}
                         />
-                        <Typography variant="h7" component="div">
+                        <Typography variant="h7" component="div" sx={{height:'20%'}}>
                           A List of bus lines, for which you can check the timetable
                           for today.
                         </Typography>
@@ -61,18 +59,18 @@ const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getF
                 </Card>
             </Grid>
 
-            <Grid item xs={4}>
-                <Card elevation={15} onClick={navigateToBicycles}>
+            <Grid item xs={4} sx={{padding: 'none'}}>
+                <Card elevation={15} onClick={navigateToBicycles} sx={{width:'100%', height: '100%', paddingTop: 2, paddingBottom: 2.5 }}>
                     <CardContent>
-                        <Typography variant="h5" component="div">
+                        <Typography variant="h5" component="div" sx={{height:'20%'}}>
                               Bicycles
                         </Typography>
                         <CardMedia
                         component="img"
                         image = "/bike.svg"
-                        sx={{marginBottom: 1, marginTop: 1.5}}
+                        sx={{ width: '80%', height: '60%'}}
                         />
-                        <Typography variant="h7" component="div">
+                        <Typography variant="h7" component="div" sx={{height:'20%'}}>
                         A list of the stations where one can pick up
                         and return bicycles from the Divvy bicycle
                         sharing system.
@@ -81,18 +79,18 @@ const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getF
                 </Card>
             </Grid>
 
-            <Grid item xs={4}>
-                <Card elevation={15} onClick={navigateToLogin}>
+            <Grid item xs={4} sx={{padding: 'none'}}>
+                <Card elevation={15} onClick={navigateToLogin} sx={{width:'100%', height: '100%', paddingTop: 1, paddingBottom: 2.5}}>
                     <CardContent>
-                        <Typography variant="h5" component="div">
+                        <Typography variant="h5" component="div" sx={{height:'20%'}}>
                               Log In 
                         </Typography>
                         <CardMedia
                         component="img"
                         image = "/user.svg"
-                        sx={{marginBottom: 1.5, marginTop: 1.5}}
+                        sx={{width: '80%', height: '50%', marginBottom: 1.5}}
                         />
-                        <Typography variant="h7" component="div">
+                        <Typography variant="h7" component="div" sx={{height:'30%'}}>
                          Log in or sign in to access your account
                         </Typography>
                     </CardContent>

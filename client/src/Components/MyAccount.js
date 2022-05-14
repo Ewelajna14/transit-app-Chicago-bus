@@ -19,7 +19,7 @@ function MyAccount({user}){
         if (user == null){
             navigate("/login")
         }
-         }, [])
+         }, [user])
 
   useEffect(()=>{
       if (user) {

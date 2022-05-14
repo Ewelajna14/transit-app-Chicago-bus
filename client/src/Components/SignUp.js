@@ -1,6 +1,5 @@
 import {Grid, Paper, Avatar, TextField,  Button, Typography, Link} from "@mui/material"
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import { useNavigate } from "react-router-dom";
 import {useState} from "react"
 
 
@@ -57,7 +56,9 @@ function SignUp({onLogin}){
             <Paper elevation={10} sx={{
                 padding: 3,
                 height: '75vh',
-                width: 350,
+                minWidth: 350,
+                minHeight: 600,
+                width: '20%',
                 margin: "auto",
                 marginTop: 10
             }}>
@@ -66,14 +67,16 @@ function SignUp({onLogin}){
                    <Avatar><LockOpenIcon/></Avatar>
                    <h3>Sign Up</h3>
                 </Grid>
+                <Grid sx={{width:'90%', height: '80%'}}>
                 <TextField value ={fname} onChange={(e)=>setFname(e.target.value)} variant="standard" label="First Name" placeholder="Enter first name" fullWidth required/>
                 <TextField value ={lname} onChange={(e)=>setLname(e.target.value)}variant="standard"  label="Last Name" placeholder="Enter last name" fullWidth required/>
                 <TextField value ={email} onChange={(e)=>setEmail(e.target.value)}variant="standard" label="Email" placeholder="Enter email" fullWidth required/>
                 <TextField value ={username} onChange={(e)=>setUsername(e.target.value)}variant="standard" label="Username" placeholder="Enter username" fullWidth required/>
                 <TextField value ={pass} onChange={(e)=>setPass(e.target.value)}variant="standard" type="password"  label="Password" placeholder="Enter password" fullWidth required/>
-                <TextField value ={confPass} onChange={(e)=>setConffPass(e.target.value)}variant="standard" type="password"  label="Confirm Password" placeholder="Enter password" fullWidth required sx={{marginBottom: 1}}/>
-                <Typography variant="h9">Already have an account?</Typography><Link href="/login" sx={{margin: 1}}>Login</Link>
-                <Button type="submit" variant="contained" fullWidth required sx={{marginTop: 2}} >Sign Up</Button>
+                <TextField value ={confPass} onChange={(e)=>setConffPass(e.target.value)}variant="standard" type="password"  label="Confirm Password" placeholder="Enter password" fullWidth required sx={{marginBottom: 3}}/>
+                <Typography variant="h9" sx={{marginTop: 5}}>Already have an account?</Typography><Link href="/login" sx={{margin: 2}}>Login</Link>
+                <Button type="submit" variant="contained" fullWidth required sx={{marginTop: 5}} >Sign Up</Button>
+                </Grid>
                 </form>
             </Paper>
         </Grid>

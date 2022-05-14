@@ -30,10 +30,10 @@ function MyFavLine({user, fav, onDelete}){
                     <Typography variant="h5" component="div" sx={{ mb: 1.5 }} color="text.secondary">
                       Route: {fav.name}
                     </Typography>
-                     <Button sx={{color: '#64748B', marginRight: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',
-                                        transition: '0.7s',color: 'white'}}} id = {fav.id} onClick={handleDelete}><CloseIcon/></Button>
-                     <Button sx={{color: '#64748B', marginRight: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',
-                                        transition: '0.7s',color: 'white'}}} id = {fav.busId} onClick={handleRedirect}> Show Line</Button>
+                     <Button id = {fav.id} sx={{color: '#64748B', marginRight: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',
+                                        transition: '0.7s',color: 'white'}}}  onClick={handleDelete}>Delete</Button>
+                     <Button id = {fav.busId} sx={{color: '#64748B', marginRight: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',
+                                        transition: '0.7s',color: 'white'}}}  onClick={handleRedirect}> Show Line</Button>
                 </CardContent>
             </Card>
         

@@ -43,7 +43,8 @@ function Login({onLogin, user}){
             <Paper elevation={10} sx={{
                 padding: 3,
                 height: '70vh',
-                width: 300,
+                width: '20%',
+                minWidth: 300,
                 margin: "auto",
                 marginTop: 10
             }}>
