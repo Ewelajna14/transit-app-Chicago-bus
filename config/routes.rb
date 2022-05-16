@@ -14,9 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :vehicles, only: [:show]
 
-  resources :users, only: [:create] do 
+  resources :users, only: [:create, :update] do 
     resources :fovourite_lines, only: [:index, :create, :destroy]
   end
 

@@ -12,7 +12,7 @@ function StopDetail({location, zoomIn, setZoomIn}){
 
     const stops = useSelector((state)=>state.persisted.stops.entities["bustime-response"].stops)
 
-    const predictions = useSelector((state)=>state.predictions.entities["bustime-response"])
+    const predictions = useSelector((state)=>state.persisted.predictions.entities["bustime-response"])
 
     const navigate = useNavigate()
 

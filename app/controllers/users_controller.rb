@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    skip_before_action :authorize, only: :create
+    skip_before_action :authorize, only: [:create, :update]
     
     # POST /users
     def create
@@ -13,13 +13,20 @@ class UsersController < ApplicationController
         render json: @current_user
     end
 
+    #PATCH /users/:id
+    def update
+        user = User.find(params[:id])
+        user.update!(user_params)
+        render json: user
+    end
+
 
 
 
     private
 
     def user_params
-        params.permit(:first_name, :last_name, :username, :email, :password, :password_confirmation)
+        params.permit(:id, :first_name, :last_name, :username, :email, :password, :password_confirmation)
     end
 
 
