@@ -74,18 +74,29 @@ Backend is running on http://localhost:3000/
 Routes are defined in routes.rb file To see this routes in browser user must be logged in otherwise you will see "Not authorized" message
 
 Routes:  http://localhost:3000/routes
+
 Directions: http://localhost:3000/directions
+
 Bicycle stations http://localhost:3000/bicycles_stations
+
 To see infortmation about currently logged in user go to: http://localhost:3000/me
+
 
 Other routes are nested routes or  related witch create, update and destroy actions and can be triggered from Frontend:
 create new user after submitting Sign up form
+
 create new session after login
+
 destroy session after log out
+
 create favourite route for logged in user, with ability to delete it
+
 update info for logged in user
+
 see stops for chosen line
+
 see predictions for choosen stop and direction
+
 
 ## Deploying
 
