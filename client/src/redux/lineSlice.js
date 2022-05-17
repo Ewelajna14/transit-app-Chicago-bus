@@ -13,6 +13,7 @@ export const lineSlice = createSlice({
   initialState: {
   entities: [], //array of buses
   status: "idle", // loading state
+  errorMessage: null
   },
   extraReducers: {
     // handle async actions: pending, fulfilled, rejected (for errors)
@@ -23,6 +24,13 @@ export const lineSlice = createSlice({
       state.entities = action.payload;
       state.status = "idle";
     },
+
+    [fetchLine.rejected](state, {error}) {
+      console.log({error})
+      state.status = "rejected";
+      state.errorMessage = error.message
+    }, 
+
   },
 })
 

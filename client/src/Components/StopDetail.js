@@ -6,6 +6,7 @@ import Map from './Map'
 import StopDetailCard from "./StopDetailCard";
 import {fetchPredictions} from "../redux/predictionsSlice";
 
+
 function StopDetail({location, zoomIn, setZoomIn}){
 
     const lineDetail = useSelector((state)=>state.persisted.line.entities)
@@ -13,6 +14,7 @@ function StopDetail({location, zoomIn, setZoomIn}){
     const stops = useSelector((state)=>state.persisted.stops.entities["bustime-response"].stops)
 
     const predictions = useSelector((state)=>state.persisted.predictions.entities["bustime-response"])
+
 
     const navigate = useNavigate()
 
@@ -41,6 +43,7 @@ function StopDetail({location, zoomIn, setZoomIn}){
                 <h2></h2>
                 <Button variant="outlined" sx={{color: '#64748B',  margin: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',transition: '0.7s',color: 'white'} }} onClick={backToStops}><KeyboardReturnIcon/> Back </Button> 
                 <Button variant="outlined" sx={{color: '#64748B', margin: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',transition: '0.7s',color: 'white'} }} onClick ={fetchData}>Refresh</Button>
+                {predictions.error? <h2> {predictions.error[0].msg} </h2>: null}
                 {
                     predictions && predictions.prd?.map((prediction)=>{
                         return(
@@ -60,3 +63,5 @@ function StopDetail({location, zoomIn, setZoomIn}){
 }
 
 export default StopDetail
+
+//entities["bustime-response"].error[0].msg

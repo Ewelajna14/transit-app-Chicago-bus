@@ -8,6 +8,7 @@ import MyFavLine from "./MyFavLine";
 import SearchBar from "./SearchBar";
 import {Typography, Grid, Box, Button, TextField} from "@mui/material"
 
+
 function MyAccount({user, setUser}){
 
 const [show, setShow] = useState(false)
@@ -22,7 +23,7 @@ const [email, setEmail] = useState(user.email)
 const dispatch = useDispatch()
 
   useEffect(()=>{ 
-   dispatch(fetchFavLine(user.id)) 
+   dispatch(fetchFavLine(user.id))
    }, [dispatch])
 
 const favLine = useSelector((state)=> state.favLine.entities)

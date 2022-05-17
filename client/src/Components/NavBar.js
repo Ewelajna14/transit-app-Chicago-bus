@@ -6,8 +6,6 @@ import { NavLink, useNavigate} from "react-router-dom";
 
 function NavBar({user, setUser}){
 
-  console.log(user)
-
   const navigate = useNavigate()
 
   function handleLogOut(){

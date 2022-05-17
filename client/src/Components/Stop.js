@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import {fetchPredictions} from "../redux/predictionsSlice";
 import {useNavigate} from 'react-router-dom';
 
+
 function Stop({stop, lineDetail, changeMapCenter}){
 
     const dispatch = useDispatch()
@@ -18,6 +19,7 @@ function Stop({stop, lineDetail, changeMapCenter}){
      changeMapCenter(stop.value)
      dispatch(fetchPredictions({line: line, stop: stop.id}))
      navigate("/stopDetail")
+
     }
 
     return (
