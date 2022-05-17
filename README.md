@@ -49,20 +49,20 @@ You can use the following commands to run the application:
 - `npm start --prefix client`: run the frontend on http://localhost:4000
 ## About the project - Frontend
 Navigate to Sign up page, fill in the information to create new user.
-![](../../../../../../mnt/c/Users/casta/AppData/Local/Programs/Microsoft%20VS%20Code/c:/Users/casta/OneDrive/Desktop/Capstone%20Project/signup.jpg)
+![](vscode-remote://wsl%2Bubuntu/home/ewelina/Development/code/capstone_project/transit-app/image/signup.jpg)
 
 From the home page choose Schedule
 Pick the bus line you want to check timetable for
 
-![](../../../../../../mnt/c/Users/casta/AppData/Local/Programs/Microsoft%20VS%20Code/c:/Users/casta/OneDrive/Desktop/Capstone%20Project/schedule.jpg)
+![](vscode-remote://wsl%2Bubuntu/home/ewelina/Development/code/capstone_project/transit-app/image/schedule.jpg)
 
 Pick the direction to see list of bus stops, see their location on the map
 
-![](../../../../../../mnt/c/Users/casta/AppData/Local/Programs/Microsoft%20VS%20Code/c:/Users/casta/OneDrive/Desktop/Capstone%20Project/line_detail.jpg)
+![](vscode-remote://wsl%2Bubuntu/home/ewelina/Development/code/capstone_project/transit-app/image/line_detail.jpg)
 
 Check the arrivals for chosen stop and see its location on the map
 
-![](../../../../../../mnt/c/Users/casta/AppData/Local/Programs/Microsoft%20VS%20Code/c:/Users/casta/OneDrive/Desktop/Capstone%20Project/bus_detail.jpg)
+![](vscode-remote://wsl%2Bubuntu/home/ewelina/Development/code/capstone_project/transit-app/image/bus_detail.jpg)
 
 
 ## Deploying
