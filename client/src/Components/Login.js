@@ -10,6 +10,11 @@ function Login({onLogin, user}){
 
     const navigate = useNavigate()
 
+    useEffect(()=>{
+        if(user){
+     navigate("/home")}
+    }, [])
+
     function navigateToSignUp(){
         navigate("/signup")
     }
