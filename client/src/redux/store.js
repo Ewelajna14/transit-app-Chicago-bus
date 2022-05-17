@@ -15,7 +15,7 @@ const reducers = combineReducers({
         line: lineReducer,
         buses: busesReducer,
         stops: stopsReducer,
-        predictions: predictionsReducer,
+        predictions: predictionsReducer
   });
 
   const persistConfig = {
@@ -30,7 +30,6 @@ const reducers = combineReducers({
        persisted: persistedReducer,
        favLine: favLineReducer,
        bstations: bicyclesStationsReducer,
-       
       },
     devTools: process.env.NODE_ENV !== 'production',
     middleware: [thunk],

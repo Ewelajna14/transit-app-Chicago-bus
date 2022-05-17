@@ -2,7 +2,7 @@ import {Button, Card, CardContent, Typography} from "@mui/material"
 import {useDispatch} from "react-redux"
 import {fetchLine} from "../redux/lineSlice"
 import {useNavigate} from "react-router-dom";
-import CloseIcon from '@mui/icons-material/Close';
+
 
 
 function MyFavLine({user, fav, onDelete}){

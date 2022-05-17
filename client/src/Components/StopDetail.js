@@ -28,6 +28,7 @@ function StopDetail({location, zoomIn, setZoomIn}){
         dispatch(fetchPredictions({line: lineDetail.route, stop: stopId}))
     }
 
+
     
     return(
         <div>
