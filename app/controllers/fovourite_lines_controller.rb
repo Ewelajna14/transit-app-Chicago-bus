@@ -1,6 +1,6 @@
 class FovouriteLinesController < ApplicationController
 
-  
+    before_action :is_authorized_to_see
 
     #GET users/:user_id/fovourite_lines
     def index
@@ -31,7 +31,11 @@ class FovouriteLinesController < ApplicationController
     params.fetch(:fovourite_line, {}).permit(:user_id, :route, :name, :busId, :liked => [])
     end
 
-    
+    def is_authorized_to_see
+        user = User.find(params[:user_id])
+        permitted = @current_user.id == user.id
+        render json: "Accessibility is not permitted - You can't see other's favoutites routes", status: :forbidden unless permitted
+    end
 
 
 

@@ -49,10 +49,12 @@ You can use the following commands to run the application:
 - `npm start --prefix client`: run the frontend on http://localhost:4000
 ## About the project - Frontend
 Navigate to Sign up page, fill in the information to create new user.
+
+
 ![Getting Started](./image/signup.jpg)
 
-From the home page choose Schedule
-Pick the bus line you want to check timetable for
+From the home page choose Schedule,
+pick the bus line you want to check timetable for
 
 ![Getting Started](./image/schedule.jpg)
 
@@ -64,6 +66,26 @@ Check the arrivals for chosen stop and see its location on the map
 
 ![Getting Started](./image/bus_detail.jpg)
 
+
+## About the project - Backend
+
+Backend is running on http://localhost:3000/
+
+Routes are defined in routes.rb file To see this routes in browser user must be logged in otherwise you will see "Not authorized" message
+
+Routes:  http://localhost:3000/routes
+Directions: http://localhost:3000/directions
+Bicycle stations http://localhost:3000/bicycles_stations
+To see infortmation about currently logged in user go to: http://localhost:3000/me
+
+Other routes are nested routes or  related witch create, update and destroy actions and can be triggered from Frontend:
+create new user after submitting Sign up form
+create new session after login
+destroy session after log out
+create favourite route for logged in user, with ability to delete it
+update info for logged in user
+see stops for chosen line
+see predictions for choosen stop and direction
 
 ## Deploying
 
