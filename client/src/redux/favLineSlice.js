@@ -2,9 +2,10 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export const fetchFavLine = createAsyncThunk("favLine/fetchFavLine", async (id) => {
   // return a Promise containing the data we want
-  const response = await fetch(`users/${id}/fovourite_lines`);
-    const data = await response.json();
-     return data;
+ 
+  const response = await fetch(`users/${id}/fovourite_lines`)
+    const data = await response.json()
+     return data 
 });
 
 export const createFavLine = createAsyncThunk( "favLine/createFavLine", async ({id, newData})=>{
@@ -31,6 +32,7 @@ export const favLineSlice = createSlice({
   initialState: {
   entities: [], //array of buses
   status: "idle", // loading state
+  error: "" 
   },
   extraReducers: {
     // handle async actions: pending, fulfilled, rejected (for errors)
@@ -41,6 +43,11 @@ export const favLineSlice = createSlice({
       state.entities = action.payload;
       state.status = "idle";
     },
+    [fetchFavLine.rejected](state, action) {
+      state.status = "rejected";
+      state.error = action.payload
+    },
+
     [createFavLine.fulfilled](state, action){
         state.entities.push(action.payload);
         state.status = "idle";

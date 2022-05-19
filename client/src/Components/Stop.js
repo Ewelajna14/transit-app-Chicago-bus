@@ -13,7 +13,7 @@ function Stop({stop, lineDetail, changeMapCenter}){
 
     
 
-    function showStop(event){
+    function showPredictions(event){
      const stop = event.target
      const line = lineDetail.route
      changeMapCenter(stop.value)
@@ -24,7 +24,7 @@ function Stop({stop, lineDetail, changeMapCenter}){
 
     return (
     <li>
-      <Button variant="text" sx={{textAlign: "left", color: '#64748B', '&:hover': {backgroundColor: '#959BBF', transition: '0.7s', color: 'white'} }}id ={stop.stpid} value={[stop.lat, stop.lon]} onClick={showStop}>{stop.stpnm}</Button>
+      <Button variant="text" sx={{textAlign: "left", color: '#64748B', '&:hover': {backgroundColor: '#959BBF', transition: '0.7s', color: 'white'} }}id ={stop.stpid} value={[stop.lat, stop.lon]} onClick={showPredictions}>{stop.stpnm}</Button>
     </li>)
 
 }

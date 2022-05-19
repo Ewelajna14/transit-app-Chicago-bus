@@ -45,7 +45,7 @@ function StopDetail({location, zoomIn, setZoomIn}){
                 <Button variant="outlined" sx={{color: '#64748B', margin: 1, border: '1px solid #959BBF', '&:hover': { backgroundColor: '#959BBF',transition: '0.7s',color: 'white'} }} onClick ={fetchData}>Refresh</Button>
                 {predictions.error? <h2> {predictions.error[0].msg} </h2>: null}
                 {
-                    predictions && predictions.prd?.map((prediction)=>{
+                    predictions !=0 && predictions.prd?.map((prediction)=>{
                         return(
                             <StopDetailCard key={prediction.tatripid} prediction={prediction}/>
                         )

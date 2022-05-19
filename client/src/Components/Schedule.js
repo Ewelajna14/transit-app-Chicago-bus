@@ -3,26 +3,26 @@ import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import {useEffect, useState} from "react"
 import {useNavigate} from "react-router-dom";
-import {  useDispatch } from "react-redux";
+import {  useDispatch, useSelector } from "react-redux";
 import {fetchLine} from "../redux/lineSlice"
 import Map from "./Map";
 import "../App.css"
+import { fetchBuses } from "../redux/busesSlice";
+
 
 function Schedule({location, zoomIn}){
 
-const[routes, setRoutes] = useState([])
 const [search, setSearch] = useState("")
 
 const navigate = useNavigate();    
-
-
 const dispatch = useDispatch();
 
-   useEffect(()=>{
-    fetch("/routes")
-    .then((response) => response.json())
-    .then((data) =>setRoutes(data))
-   }, [])
+   useEffect(()=>{ 
+    dispatch(fetchBuses())
+   }, [dispatch])
+
+   const routes = useSelector((state)=> state.persisted.buses.entities)
+
 
    function showLine(event){
    const line = event.target
@@ -35,7 +35,6 @@ const dispatch = useDispatch();
    }
 
    function handleClearSearch(){
-    setRoutes(routes)
     setSearch("")
 }
 
