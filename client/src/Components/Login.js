@@ -2,11 +2,14 @@ import {Grid, Paper, Avatar, TextField, Checkbox, FormControlLabel, Button, Typo
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { useNavigate } from "react-router-dom";
 import {useState, useEffect} from "react"
+import Error from "./Error";
 
 function Login({onLogin, user}){
 
     const [username, setUsername] = useState("")
     const [pass, setPass] = useState("")
+    const [errors, setErrors] = useState([])
+
 
     const navigate = useNavigate()
 
@@ -37,7 +40,7 @@ function Login({onLogin, user}){
            r.json().then((user)=> onLogin(user))
        }
        else {
-           r.json().then((error)=>console.log(error))
+        r.json().then((error)=>setErrors(error.error))
        }
    })
 
@@ -47,7 +50,7 @@ function Login({onLogin, user}){
         <Grid>
             <Paper elevation={10} sx={{
                 padding: 3,
-                height: '70vh',
+                height: '75vh',
                 width: '20%',
                 minWidth: 300,
                 margin: "auto",
@@ -67,7 +70,8 @@ function Login({onLogin, user}){
                     <Checkbox color="primary"/>
                 }
                 />
-                <Button type="submit" variant="contained" fullWidth required sx={{marginBottom: 8}}>Log In</Button>
+                <Button type="submit" variant="contained" fullWidth required sx={{marginBottom: 4}}>Log In</Button>
+                {errors.map((err)=>(<Error key={err} err={err} />))}
                 <Typography variant="h7" component="div" align="center">
                     Don't have an account?
                     <Button type="submit" variant="contained" fullWidth required onClick={navigateToSignUp}>Sign Up</Button>

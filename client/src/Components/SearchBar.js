@@ -66,7 +66,7 @@ function SearchBar({onAddFavLine}){
             { filteredData.length != 0 && (
             <p className="dataResults">
                 {filteredData.map((bus, key)=>{
-                    return <button key ={bus.id} className="dataItem" id={bus.id} value={bus.name} onClick={handleAddToFav}>{bus.route}</button>
+                    return <button style={{backgroundColor:'transparent'}} key ={bus.id} className="dataItem" id={bus.id} value={bus.name} onClick={handleAddToFav}>{bus.route}</button>
                 })}
             </p>
              )}

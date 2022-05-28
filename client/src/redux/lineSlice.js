@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-export const fetchLine = createAsyncThunk("line/fetchLine", (id) => {
+export const fetchLine = createAsyncThunk("line/fetchLine", async (id) => {
   // return a Promise containing the data we want
-  return fetch(`/routes/${id}`)
-    .then((response) => response.json())
-    .then((data) => data);
+  const response = await fetch(`/routes/${id}`);
+  const data = await response.json();
+  return data;
 });
 
 

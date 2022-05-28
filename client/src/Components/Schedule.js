@@ -10,7 +10,7 @@ import "../App.css"
 import { fetchBuses } from "../redux/busesSlice";
 
 
-function Schedule({location, zoomIn}){
+function Schedule({location, zoomIn, setZoomIn}){
 
 const [search, setSearch] = useState("")
 
@@ -18,11 +18,12 @@ const navigate = useNavigate();
 const dispatch = useDispatch();
 
    useEffect(()=>{ 
+    setZoomIn(11)
     dispatch(fetchBuses())
    }, [dispatch])
 
    const routes = useSelector((state)=> state.persisted.buses.entities)
-
+  
 
    function showLine(event){
    const line = event.target
@@ -70,6 +71,7 @@ const dispatch = useDispatch();
                             placeholder="Look for the route name"
                             value={search}
                             onChange={searchRoute}/> 
+
 
                             <Box sx={{
                             display: 'flex',                              

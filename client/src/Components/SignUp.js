@@ -1,6 +1,7 @@
 import {Grid, Paper, Avatar, TextField,  Button, Typography, Link} from "@mui/material"
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import {useState} from "react"
+import Error from "./Error";
 
 
 function SignUp({onLogin}){
@@ -11,8 +12,8 @@ function SignUp({onLogin}){
     const [username, setUsername] = useState("")
     const [pass, setPass] = useState("")
     const [confPass, setConffPass ] = useState("")
-
-
+    const [errors, setErrors] = useState([])
+    
 
 
     function handleSignUp(e){
@@ -38,7 +39,7 @@ function SignUp({onLogin}){
             r.json().then((newUser)=>onLogin(newUser))
         }
         else {
-            r.json().then((error)=>console.log(error))
+            r.json().then((error)=>setErrors(error.errors))
         }
     })
 
@@ -55,7 +56,7 @@ function SignUp({onLogin}){
         <Grid>
             <Paper elevation={10} sx={{
                 padding: 3,
-                height: '75vh',
+                height: '87vh',
                 minWidth: 350,
                 minHeight: 600,
                 width: '20%',
@@ -75,9 +76,10 @@ function SignUp({onLogin}){
                 <TextField value ={pass} onChange={(e)=>setPass(e.target.value)}variant="standard" type="password"  label="Password" placeholder="Enter password" fullWidth required/>
                 <TextField value ={confPass} onChange={(e)=>setConffPass(e.target.value)}variant="standard" type="password"  label="Confirm Password" placeholder="Enter password" fullWidth required sx={{marginBottom: 3}}/>
                 <Typography variant="h9" sx={{marginTop: 5}}>Already have an account?</Typography><Link href="/" sx={{margin: 2}}>Login</Link>
-                <Button type="submit" variant="contained" fullWidth required sx={{marginTop: 5}} >Sign Up</Button>
+                {errors.map((err)=>(<Error key={err} err={err} />))}
+                <Button type="submit" variant="contained" fullWidth required sx={{marginTop: 1}} >Sign Up</Button>
                 </Grid>
-                </form>
+                </form>  
             </Paper>
         </Grid>
     )

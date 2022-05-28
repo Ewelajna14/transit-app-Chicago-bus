@@ -20,7 +20,7 @@
   margin-top: 5px;
   width: 300px;
   height: 200px;
-  background-color: white;
+  background-color: transparent;
   overflow: hidden;
   overflow-y: auto;
 }
@@ -101,23 +101,8 @@ button:hover {
 
 
  .bg-image {
-
- 
-  /* The image used */
   background-image: url("background.jpg");
-
-  /* Add the blur effect */
- /* filter: blur(8px);
-  -webkit-filter: blur(8px);
-  * {
-  box-sizing: border-box;
- 
-}
-
-  /* Full height */
   height: 100%;
-
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size:contain;
@@ -126,21 +111,12 @@ button:hover {
  
 }
 
-/* Position text in the middle of the page/image */
-.bg-content-x {
- /* background-color: rgb(0,0,0); /* Fallback color */
- /* background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 100%;
- /* padding: 20px;
- /* text-align: center; */
+.errorContainer {
+color: red;
+display: flex;
+padding: 1px;
+align-items: center;
+gap: 8px;
 }
 
 
