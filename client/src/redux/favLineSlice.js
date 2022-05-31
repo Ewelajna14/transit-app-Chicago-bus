@@ -21,9 +21,11 @@ export const createFavLine = createAsyncThunk( "favLine/createFavLine", async ({
 })
 
 export const deleteFavLine = createAsyncThunk("favLine/deleteFavLine", async ({user: user, id: id})=>{
-    return await fetch(`/users/${user}/fovourite_lines/${id}`, {
+    const response = await fetch(`/users/${user}/fovourite_lines/${id}`, {
         method: "DELETE", 
     })
+
+    return id
 })
 
 
@@ -53,11 +55,16 @@ export const favLineSlice = createSlice({
         state.status = "idle";
     },
 
+    [deleteFavLine.pending](state) {
+      state.status = "loading";
+    },
+
     [deleteFavLine.fulfilled] (state, action){
-        const index = state.entities.findIndex(
-            (fav) => fav.id === action.payload
-          );
-          state.entities.splice(index, 1);
+      const index = state.entities.findIndex(
+        (fav) => fav.id == action.payload
+      );
+      //console.log(index)
+      state.entities.splice(index,1)
     },
     
   },

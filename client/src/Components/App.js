@@ -66,7 +66,7 @@ function App() {
       <Route exact path="/myAccount" element={<MyAccount user={user} setUser={setUser}/>}></Route>
       <Route exact path ="/schedule" element={<Schedule  location={location} zoomIn={zoomIn} setZoomIn={setZoomIn}/>}/>
       <Route exact path="/bicycles" element={<BicyclesMain user={user}/>}/>
-      <Route exact path ="/details" element={<LineDetails location={location} zoomIn={zoomIn} changeMapCenter={changeMapCenter}/>}/>
+      <Route exact path ="/details" element={<LineDetails location={location} zoomIn={zoomIn} changeMapCenter={changeMapCenter} setZoomIn={setZoomIn}/>}/>
       <Route exact path ="/stops" element={<Stops changeMapCenter={changeMapCenter} location={location} zoomIn={zoomIn}/>}/>
       <Route exact path ="/stopDetail" element={<StopDetail location={location} zoomIn={zoomIn} setZoomIn={setZoomIn}/>}/>
     </Routes>

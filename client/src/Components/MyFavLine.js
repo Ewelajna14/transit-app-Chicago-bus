@@ -11,11 +11,12 @@ function MyFavLine({user, fav, onDelete}){
     const navigate = useNavigate()
 
     function handleDelete(event){
-    onDelete(user.id, event.target.id)
+        onDelete(user.id, event.target.id)
     }
 
     function handleRedirect(event){
         const id = event.target.id
+        console.log(id)
         dispatch(fetchLine(id))
         navigate("/details")
     }

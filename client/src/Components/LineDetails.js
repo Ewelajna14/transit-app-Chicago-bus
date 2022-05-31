@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import { Grid, Button, Typography} from "@mui/material"
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 import {useNavigate} from 'react-router-dom';
@@ -8,13 +8,17 @@ import Stops from "./Stops";
 import Map from "./Map"
 
 
-function LineDetails({location, zoomIn, changeMapCenter}){
+function LineDetails({location, zoomIn, changeMapCenter, setZoomIn}){
 
     const lineDetail = useSelector((state)=>state.persisted.line.entities)
     const [stops, setStops] = useState([])
 
     const navigate = useNavigate()
     const dispatch = useDispatch();
+
+    useEffect(()=>{
+    setZoomIn(11)
+    }, [])
 
     
     function showStops(event){
