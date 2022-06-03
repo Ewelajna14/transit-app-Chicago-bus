@@ -30,6 +30,7 @@ function LineDetails({location, zoomIn, changeMapCenter, setZoomIn}){
     .then((r) => setStops(r["bustime-response"].stops))
     }
 
+
     function backToSchedule(){
     navigate("/schedule")
     }

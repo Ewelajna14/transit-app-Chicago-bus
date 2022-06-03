@@ -14,6 +14,8 @@ function MyFavLine({user, fav, onDelete}){
         onDelete(user.id, event.target.id)
     }
 
+    
+
     function handleRedirect(event){
         const id = event.target.id
         console.log(id)
