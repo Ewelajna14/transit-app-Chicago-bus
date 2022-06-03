@@ -10,8 +10,6 @@ function navigateToSchedule(){
     navigate("/schedule")
 }
 
-
-
 function navigateToBicycles(){
     navigate("/bicycles")
 }
@@ -21,7 +19,6 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 const current =new Date()
 
 const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getFullYear()}`
-
 
     return(
         <div className="bg-photo">
@@ -77,8 +74,7 @@ const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getF
                         component="img"
                         image = "/bike3.svg"
                         sx={{width:'70%', height: '70%'}}
-                        />
-                       
+                        />  
                     </CardContent>
                 </Card>
             </Grid>

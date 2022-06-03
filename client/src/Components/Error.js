@@ -1,4 +1,5 @@
 import "../App.css"
+
 function Error({err}){
     return(
         <div className="errorContainer">
