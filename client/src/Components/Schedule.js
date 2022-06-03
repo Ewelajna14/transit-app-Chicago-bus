@@ -24,7 +24,6 @@ const dispatch = useDispatch();
 
    const routes = useSelector((state)=> state.persisted.buses.entities)
   
-
    function showLine(event){
    const line = event.target
    dispatch(fetchLine(line.id))

@@ -4,6 +4,7 @@ import Menu from '@mui/icons-material/MenuOutlined';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { NavLink, useNavigate} from "react-router-dom";
 
+
 function NavBar({user, setUser}){
 
   const navigate = useNavigate()
