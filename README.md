@@ -1,4 +1,4 @@
-# Chicago Bus schedule app: React/Rails API
+# Chicago QuickBus : React/Rails API
 
 ## Description
 
