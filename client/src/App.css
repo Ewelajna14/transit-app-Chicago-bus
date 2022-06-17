@@ -1,4 +1,14 @@
 
+*{
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .my-font {
   font-family: 'Varela Round', sans-serif;
 }
@@ -60,22 +70,20 @@ button:hover {
 
 
 .bg-content{
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
-  box-sizing: border-box;
   overflow: hidden;
   font-family: 'Varela Round', sans-serif;
 }
 
 .main-bg{
   background-image: url("main-bg.jpg");
-  background-size: cover;
+  height: 100vh; 
   background-position: center;
   background-repeat: no-repeat;
   background-size:contain;
   background-size: cover;
-  width: 100%;
-  min-height: 100vh;
+  margin: 0;
 }
 
 .bg-photo{ 
@@ -85,7 +93,7 @@ button:hover {
   background-repeat: no-repeat;
   background-size:contain;
   background-size: cover;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
  
 
@@ -105,7 +113,6 @@ button:hover {
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-size:contain;
   background-size: cover;
 
  

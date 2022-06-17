@@ -25,8 +25,7 @@ const date = `${months[current.getMonth()]} ${current.getDate()}, ${current.getF
         <div className="bg-photo-text">
          <Grid sx={{ 
                 alignItems:"center", 
-                justifyContent:"center",
-               // margin: 'auto'
+                justifyContent:"center"
                 }} 
                 container spacing={1}>
             <Grid item xs={12} align="center">

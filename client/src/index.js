@@ -17,7 +17,7 @@ ReactDOM.render(
   
   <React.StrictMode>
     <BrowserRouter>
-    <CssBaseline/>
+    
     <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
     <App />
